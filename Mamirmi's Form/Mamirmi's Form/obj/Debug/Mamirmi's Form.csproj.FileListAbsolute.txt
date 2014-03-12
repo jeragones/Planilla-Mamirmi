@@ -1,0 +1,21 @@
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\bin\Debug\Mamirmi's Form.exe.config
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\bin\Debug\Mamirmi's Form.exe
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\bin\Debug\Mamirmi's Form.pdb
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\obj\Debug\Mamirmi's Form.csprojResolveAssemblyReference.cache
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\obj\Debug\Mamirmi_s_Form.Form1.resources
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\obj\Debug\Mamirmi_s_Form.Properties.Resources.resources
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\obj\Debug\Mamirmi's Form.csproj.GenerateResource.Cache
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\obj\Debug\Mamirmi's Form.exe
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\obj\Debug\Mamirmi's Form.pdb
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\bin\Debug\Mamirmi's Form.exe.config
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\obj\Debug\Mamirmi's Form.exe
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\obj\Debug\Mamirmi's Form.pdb
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\bin\Debug\Mamirmi's Form.exe
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\bin\Debug\Mamirmi's Form.pdb
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\obj\Debug\Mamirmi's Form.csprojResolveAssemblyReference.cache
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\obj\Debug\Mamirmi_s_Form.Form1.resources
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\obj\Debug\Mamirmi_s_Form.Properties.Resources.resources
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\Mamirmi's Form\Mamirmi's Form\obj\Debug\Mamirmi's Form.csproj.GenerateResource.Cache
+C:\Users\Daniel\Desktop\Mamirmi's Form\Mamirmi's Form\bin\Debug\Mamirmi's Form.exe.config
+C:\Users\Daniel\Desktop\Mamirmi's Form\Mamirmi's Form\obj\Debug\Mamirmi's Form.exe
+C:\Users\Daniel\Desktop\Mamirmi's Form\Mamirmi's Form\obj\Debug\Mamirmi's Form.pdb

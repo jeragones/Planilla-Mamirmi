@@ -1,0 +1,21 @@
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\bin\Debug\MamirmiDB.exe.config
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\bin\Debug\MamirmiDB.exe
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\bin\Debug\MamirmiDB.pdb
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\obj\Debug\MamirmiDB.csprojResolveAssemblyReference.cache
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\obj\Debug\MamirmiDB.Form1.resources
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\obj\Debug\MamirmiDB.Properties.Resources.resources
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\obj\Debug\MamirmiDB.csproj.GenerateResource.Cache
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\obj\Debug\MamirmiDB.exe
+g:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\obj\Debug\MamirmiDB.pdb
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\bin\Debug\MamirmiDB.exe.config
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\obj\Debug\MamirmiDB.exe
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\obj\Debug\MamirmiDB.pdb
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\bin\Debug\MamirmiDB.exe
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\bin\Debug\MamirmiDB.pdb
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\obj\Debug\MamirmiDB.csprojResolveAssemblyReference.cache
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\obj\Debug\MamirmiDB.Form1.resources
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\obj\Debug\MamirmiDB.Properties.Resources.resources
+E:\Usuarios\Lesmed\Documents\Visual Studio 2012\Projects\MamirmiDB\MamirmiDB\obj\Debug\MamirmiDB.csproj.GenerateResource.Cache
+C:\Users\Daniel\Desktop\MamirmiDB\MamirmiDB\bin\Debug\MamirmiDB.exe.config
+C:\Users\Daniel\Desktop\MamirmiDB\MamirmiDB\obj\Debug\MamirmiDB.exe
+C:\Users\Daniel\Desktop\MamirmiDB\MamirmiDB\obj\Debug\MamirmiDB.pdb
