@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ca4c53971a7f4c78b9538c9b4e69a86f" Name="Diagrama1">
+        <EntityTypeShape EntityType="MamirmiModel.Aguinaldo" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MamirmiModel.Empleado" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MamirmiModel.Hora" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MamirmiModel.Incapacidad" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MamirmiModel.Persona" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MamirmiModel.Salario" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MamirmiModel.Telefono" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MamirmiModel.Vacaciones" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
+        <AssociationConnector Association="MamirmiModel.fk_ID_Empleado_Aguinaldo" ManuallyRouted="false" />
+        <AssociationConnector Association="MamirmiModel.fk_ID_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="MamirmiModel.fk_ID_Empleado_Hora" ManuallyRouted="false" />
+        <AssociationConnector Association="MamirmiModel.fk_ID_Person_Incapacidad" ManuallyRouted="false" />
+        <AssociationConnector Association="MamirmiModel.fk_ID_Empleado_Salario" ManuallyRouted="false" />
+        <AssociationConnector Association="MamirmiModel.fk_ID_Empleado_Vacaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="MamirmiModel.fk_id_telefono" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
