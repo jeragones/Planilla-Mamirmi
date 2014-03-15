@@ -1,25 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Mamirmi
 {
-    public partial class Login : Form
+    class Login
     {
-        public Login()
+
+        public static bool log_in(string user, string pass)
         {
-            InitializeComponent();
+            SqlConnection conexion = new SqlConnection("Data Source=localhost;Initial Catalog=Mamirmi;Integrated Security=True");
+            conexion.Open();
+            SqlCommand query1 = new SqlCommand("select * from dbo.Usuario where Usuario='" + user + "'and Contraseña ='" + pass + "'", conexion);
+            SqlDataReader eject = query1.ExecuteReader();
+
+            if (eject.Read() == true)
+            {
+                return true;
+
+            }
+
+            else
+            {
+                return false;
+            }
+            conexion.Close();
+
+
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
