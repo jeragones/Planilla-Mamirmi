@@ -122,6 +122,17 @@
     <Compile Include="formPersona.Designer.cs">
       <DependentUpon>formPersona.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MamirmiDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MamirmiDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -129,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formPersona.resx">
       <DependentUpon>formPersona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -155,6 +169,17 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MamirmiModel.edmx</DependentUpon>
       <LastGenOutput>MamirmiModel.cs</LastGenOutput>
+    </None>
+    <None Include="MamirmiDataSet.xsc">
+      <DependentUpon>MamirmiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MamirmiDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MamirmiDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MamirmiDataSet.xss">
+      <DependentUpon>MamirmiDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
