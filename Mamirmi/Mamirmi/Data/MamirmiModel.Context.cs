@@ -25,13 +25,6 @@ namespace Mamirmi.Data
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Aguinaldo> Aguinaldo { get; set; }
-        public DbSet<Empleado> Empleado { get; set; }
-        public DbSet<Hora> Hora { get; set; }
-        public DbSet<Incapacidad> Incapacidad { get; set; }
         public DbSet<Persona> Persona { get; set; }
-        public DbSet<Salario> Salario { get; set; }
-        public DbSet<Telefono> Telefono { get; set; }
-        public DbSet<Vacaciones> Vacaciones { get; set; }
     }
 }

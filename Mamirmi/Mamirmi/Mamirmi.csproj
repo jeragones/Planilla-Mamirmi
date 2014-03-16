@@ -71,18 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\DBcontroller.cs" />
-    <Compile Include="Data\Aguinaldo.cs">
-      <DependentUpon>MamirmiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Empleado.cs">
-      <DependentUpon>MamirmiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Hora.cs">
-      <DependentUpon>MamirmiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Incapacidad.cs">
-      <DependentUpon>MamirmiModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data\MamirmiModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -99,15 +87,6 @@
       <DependentUpon>MamirmiModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Data\Persona.cs">
-      <DependentUpon>MamirmiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Salario.cs">
-      <DependentUpon>MamirmiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Telefono.cs">
-      <DependentUpon>MamirmiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Vacaciones.cs">
       <DependentUpon>MamirmiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">

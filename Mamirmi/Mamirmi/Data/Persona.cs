@@ -14,34 +14,15 @@ namespace Mamirmi.Data
     
     public partial class Persona
     {
-        public Persona()
-        {
-            this.Aguinaldo = new HashSet<Aguinaldo>();
-            this.Empleado = new HashSet<Empleado>();
-            this.Hora = new HashSet<Hora>();
-            this.Incapacidad = new HashSet<Incapacidad>();
-            this.Salario = new HashSet<Salario>();
-            this.Vacaciones = new HashSet<Vacaciones>();
-            this.Telefono = new HashSet<Telefono>();
-        }
-    
-        public string id { get; set; }
+        public int ID { get; set; }
         public string nombre { get; set; }
         public string apellidos { get; set; }
-        public byte edad { get; set; }
+        public int edad { get; set; }
         public string nacionalidad { get; set; }
         public string EstadoCivil { get; set; }
         public string direccion { get; set; }
         public string sexo { get; set; }
-        public Nullable<byte> Hijos { get; set; }
-        public string fecha_de_ingreso { get; set; }
-    
-        public virtual ICollection<Aguinaldo> Aguinaldo { get; set; }
-        public virtual ICollection<Empleado> Empleado { get; set; }
-        public virtual ICollection<Hora> Hora { get; set; }
-        public virtual ICollection<Incapacidad> Incapacidad { get; set; }
-        public virtual ICollection<Salario> Salario { get; set; }
-        public virtual ICollection<Vacaciones> Vacaciones { get; set; }
-        public virtual ICollection<Telefono> Telefono { get; set; }
+        public Nullable<int> Hijos { get; set; }
+        public System.DateTime fecha_de_ingreso { get; set; }
     }
 }

@@ -6,497 +6,56 @@
     <edmx:StorageModels>
       <Schema Namespace="MamirmiModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="MamirmiModelStoreContainer">
-          <EntitySet Name="Aguinaldo" EntityType="MamirmiModel.Store.Aguinaldo" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Empleado" EntityType="MamirmiModel.Store.Empleado" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Hora" EntityType="MamirmiModel.Store.Hora" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Incapacidad" EntityType="MamirmiModel.Store.Incapacidad" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Persona" EntityType="MamirmiModel.Store.Persona" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Salario" EntityType="MamirmiModel.Store.Salario" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Telefono" EntityType="MamirmiModel.Store.Telefono" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Vacaciones" EntityType="MamirmiModel.Store.Vacaciones" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="fk_ID_Empleado" Association="MamirmiModel.Store.fk_ID_Empleado">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Empleado" EntitySet="Empleado" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ID_Empleado_Aguinaldo" Association="MamirmiModel.Store.fk_ID_Empleado_Aguinaldo">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Aguinaldo" EntitySet="Aguinaldo" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ID_Empleado_Hora" Association="MamirmiModel.Store.fk_ID_Empleado_Hora">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Hora" EntitySet="Hora" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ID_Empleado_Salario" Association="MamirmiModel.Store.fk_ID_Empleado_Salario">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Salario" EntitySet="Salario" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ID_Empleado_Vacaciones" Association="MamirmiModel.Store.fk_ID_Empleado_Vacaciones">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Vacaciones" EntitySet="Vacaciones" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ID_Person_Incapacidad" Association="MamirmiModel.Store.fk_ID_Person_Incapacidad">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Incapacidad" EntitySet="Incapacidad" />
-          </AssociationSet>
-          <AssociationSet Name="fk_id_telefono" Association="MamirmiModel.Store.fk_id_telefono">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Telefono" EntitySet="Telefono" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Aguinaldo">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Personaid" Type="char" Nullable="false" MaxLength="12" />
-          <Property Name="Monto" Type="money" Nullable="false" />
-          <Property Name="Fecha" Type="date" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Empleado">
-          <Key>
-            <PropertyRef Name="id" />
-            <PropertyRef Name="Personaid" />
-          </Key>
-          <Property Name="id" Type="tinyint" Nullable="false" />
-          <Property Name="Personaid" Type="char" Nullable="false" MaxLength="12" />
-          <Property Name="cuenta_BN" Type="varchar" Nullable="false" MaxLength="15" />
-          <Property Name="cuenta_BP" Type="varchar" Nullable="false" MaxLength="15" />
-        </EntityType>
-        <EntityType Name="Hora">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Personaid" Type="char" Nullable="false" MaxLength="12" />
-          <Property Name="fecha_Inicial" Type="date" />
-          <Property Name="fecha_Final" Type="date" />
-          <Property Name="horas_Ordinarias" Type="decimal" Precision="10" Scale="5" />
-          <Property Name="horas_Extra" Type="decimal" Precision="10" Scale="5" />
-        </EntityType>
-        <EntityType Name="Incapacidad">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Personaid" Type="char" Nullable="false" MaxLength="12" />
-          <Property Name="fecha_Salida" Type="date" Nullable="false" />
-          <Property Name="fecha_Entrada" Type="date" Nullable="false" />
-          <Property Name="informacion" Type="varchar" MaxLength="200" />
-        </EntityType>
         <EntityType Name="Persona">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="id" Type="char" Nullable="false" MaxLength="12" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="30" />
           <Property Name="apellidos" Type="varchar" Nullable="false" MaxLength="30" />
-          <Property Name="edad" Type="tinyint" Nullable="false" />
-          <Property Name="nacionalidad" Type="varchar" Nullable="false" MaxLength="30" />
-          <Property Name="EstadoCivil" Type="varchar" Nullable="false" MaxLength="30" />
-          <Property Name="direccion" Type="varchar" Nullable="false" MaxLength="200" />
-          <Property Name="sexo" Type="char" Nullable="false" MaxLength="1" />
-          <Property Name="Hijos" Type="tinyint" />
-          <Property Name="fecha_de_ingreso" Type="varchar" MaxLength="20" />
+          <Property Name="edad" Type="int" Nullable="false" />
+          <Property Name="nacionalidad" Type="varchar" MaxLength="30" />
+          <Property Name="EstadoCivil" Type="varchar" MaxLength="30" />
+          <Property Name="direccion" Type="varchar" MaxLength="200" />
+          <Property Name="sexo" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Hijos" Type="int" />
+          <Property Name="fecha_de_ingreso" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="Salario">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Personaid" Type="char" Nullable="false" MaxLength="12" />
-          <Property Name="salario_Bruto" Type="decimal" Nullable="false" Precision="20" Scale="8" />
-          <Property Name="salario_Neto" Type="decimal" Nullable="false" Precision="20" Scale="8" />
-          <Property Name="Jornada" Type="varchar" Nullable="false" MaxLength="9" />
-          <Property Name="CCSS" Type="decimal" Nullable="false" Precision="20" Scale="8" />
-          <Property Name="ahorro_Navidad" Type="decimal" Precision="16" Scale="6" />
-          <Property Name="ahorro_Escolar" Type="decimal" Precision="16" Scale="6" />
-          <Property Name="fecha_Salario" Type="date" />
-          <Property Name="Otros" Type="decimal" Precision="16" Scale="6" />
-        </EntityType>
-        <EntityType Name="Telefono">
-          <Key>
-            <PropertyRef Name="id" />
-            <PropertyRef Name="telefono" />
-          </Key>
-          <Property Name="id" Type="char" Nullable="false" MaxLength="12" />
-          <Property Name="telefono" Type="varchar" Nullable="false" MaxLength="17" />
-        </EntityType>
-        <EntityType Name="Vacaciones">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Personaid" Type="char" Nullable="false" MaxLength="12" />
-          <Property Name="fecha_Entrada" Type="date" Nullable="false" />
-          <Property Name="fecha_Salida" Type="date" Nullable="false" />
-          <Property Name="dias" Type="int" Nullable="false" />
-        </EntityType>
-        <Association Name="fk_ID_Empleado">
-          <End Role="Persona" Type="MamirmiModel.Store.Persona" Multiplicity="1" />
-          <End Role="Empleado" Type="MamirmiModel.Store.Empleado" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Empleado">
-              <PropertyRef Name="Personaid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ID_Empleado_Aguinaldo">
-          <End Role="Persona" Type="MamirmiModel.Store.Persona" Multiplicity="1" />
-          <End Role="Aguinaldo" Type="MamirmiModel.Store.Aguinaldo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Aguinaldo">
-              <PropertyRef Name="Personaid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ID_Empleado_Hora">
-          <End Role="Persona" Type="MamirmiModel.Store.Persona" Multiplicity="1" />
-          <End Role="Hora" Type="MamirmiModel.Store.Hora" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Hora">
-              <PropertyRef Name="Personaid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ID_Empleado_Salario">
-          <End Role="Persona" Type="MamirmiModel.Store.Persona" Multiplicity="1" />
-          <End Role="Salario" Type="MamirmiModel.Store.Salario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Salario">
-              <PropertyRef Name="Personaid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ID_Empleado_Vacaciones">
-          <End Role="Persona" Type="MamirmiModel.Store.Persona" Multiplicity="1" />
-          <End Role="Vacaciones" Type="MamirmiModel.Store.Vacaciones" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Vacaciones">
-              <PropertyRef Name="Personaid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ID_Person_Incapacidad">
-          <End Role="Persona" Type="MamirmiModel.Store.Persona" Multiplicity="1" />
-          <End Role="Incapacidad" Type="MamirmiModel.Store.Incapacidad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Incapacidad">
-              <PropertyRef Name="Personaid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_id_telefono">
-          <End Role="Persona" Type="MamirmiModel.Store.Persona" Multiplicity="1" />
-          <End Role="Telefono" Type="MamirmiModel.Store.Telefono" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Telefono">
-              <PropertyRef Name="id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MamirmiModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="MamirmiEntities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="Aguinaldo" EntityType="MamirmiModel.Aguinaldo" />
-          <EntitySet Name="Empleado" EntityType="MamirmiModel.Empleado" />
-          <EntitySet Name="Hora" EntityType="MamirmiModel.Hora" />
-          <EntitySet Name="Incapacidad" EntityType="MamirmiModel.Incapacidad" />
           <EntitySet Name="Persona" EntityType="MamirmiModel.Persona" />
-          <EntitySet Name="Salario" EntityType="MamirmiModel.Salario" />
-          <EntitySet Name="Telefono" EntityType="MamirmiModel.Telefono" />
-          <EntitySet Name="Vacaciones" EntityType="MamirmiModel.Vacaciones" />
-          <AssociationSet Name="fk_ID_Empleado_Aguinaldo" Association="MamirmiModel.fk_ID_Empleado_Aguinaldo">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Aguinaldo" EntitySet="Aguinaldo" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ID_Empleado" Association="MamirmiModel.fk_ID_Empleado">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Empleado" EntitySet="Empleado" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ID_Empleado_Hora" Association="MamirmiModel.fk_ID_Empleado_Hora">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Hora" EntitySet="Hora" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ID_Person_Incapacidad" Association="MamirmiModel.fk_ID_Person_Incapacidad">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Incapacidad" EntitySet="Incapacidad" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ID_Empleado_Salario" Association="MamirmiModel.fk_ID_Empleado_Salario">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Salario" EntitySet="Salario" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ID_Empleado_Vacaciones" Association="MamirmiModel.fk_ID_Empleado_Vacaciones">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Vacaciones" EntitySet="Vacaciones" />
-          </AssociationSet>
-          <AssociationSet Name="fk_id_telefono" Association="MamirmiModel.fk_id_telefono">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Telefono" EntitySet="Telefono" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Aguinaldo">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Personaid" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
-          <Property Name="Monto" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Persona" Relationship="MamirmiModel.fk_ID_Empleado_Aguinaldo" FromRole="Aguinaldo" ToRole="Persona" />
-        </EntityType>
-        <EntityType Name="Empleado">
-          <Key>
-            <PropertyRef Name="id" />
-            <PropertyRef Name="Personaid" />
-          </Key>
-          <Property Name="id" Type="Byte" Nullable="false" />
-          <Property Name="Personaid" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
-          <Property Name="cuenta_BN" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="cuenta_BP" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="Persona" Relationship="MamirmiModel.fk_ID_Empleado" FromRole="Empleado" ToRole="Persona" />
-        </EntityType>
-        <EntityType Name="Hora">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Personaid" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
-          <Property Name="fecha_Inicial" Type="DateTime" Precision="0" />
-          <Property Name="fecha_Final" Type="DateTime" Precision="0" />
-          <Property Name="horas_Ordinarias" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="horas_Extra" Type="Decimal" Precision="10" Scale="5" />
-          <NavigationProperty Name="Persona" Relationship="MamirmiModel.fk_ID_Empleado_Hora" FromRole="Hora" ToRole="Persona" />
-        </EntityType>
-        <EntityType Name="Incapacidad">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Personaid" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
-          <Property Name="fecha_Salida" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="fecha_Entrada" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="informacion" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="Persona" Relationship="MamirmiModel.fk_ID_Person_Incapacidad" FromRole="Incapacidad" ToRole="Persona" />
-        </EntityType>
         <EntityType Name="Persona">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="id" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="apellidos" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="edad" Type="Byte" Nullable="false" />
-          <Property Name="nacionalidad" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="EstadoCivil" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="direccion" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
-          <Property Name="sexo" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
-          <Property Name="Hijos" Type="Byte" />
-          <Property Name="fecha_de_ingreso" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="Aguinaldo" Relationship="MamirmiModel.fk_ID_Empleado_Aguinaldo" FromRole="Persona" ToRole="Aguinaldo" />
-          <NavigationProperty Name="Empleado" Relationship="MamirmiModel.fk_ID_Empleado" FromRole="Persona" ToRole="Empleado" />
-          <NavigationProperty Name="Hora" Relationship="MamirmiModel.fk_ID_Empleado_Hora" FromRole="Persona" ToRole="Hora" />
-          <NavigationProperty Name="Incapacidad" Relationship="MamirmiModel.fk_ID_Person_Incapacidad" FromRole="Persona" ToRole="Incapacidad" />
-          <NavigationProperty Name="Salario" Relationship="MamirmiModel.fk_ID_Empleado_Salario" FromRole="Persona" ToRole="Salario" />
-          <NavigationProperty Name="Vacaciones" Relationship="MamirmiModel.fk_ID_Empleado_Vacaciones" FromRole="Persona" ToRole="Vacaciones" />
-          <NavigationProperty Name="Telefono" Relationship="MamirmiModel.fk_id_telefono" FromRole="Persona" ToRole="Telefono" />
+          <Property Name="edad" Type="Int32" Nullable="false" />
+          <Property Name="nacionalidad" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="EstadoCivil" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="direccion" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="sexo" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Hijos" Type="Int32" />
+          <Property Name="fecha_de_ingreso" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <EntityType Name="Salario">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Personaid" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
-          <Property Name="salario_Bruto" Type="Decimal" Nullable="false" Precision="20" Scale="8" />
-          <Property Name="salario_Neto" Type="Decimal" Nullable="false" Precision="20" Scale="8" />
-          <Property Name="Jornada" Type="String" Nullable="false" MaxLength="9" Unicode="false" FixedLength="false" />
-          <Property Name="CCSS" Type="Decimal" Nullable="false" Precision="20" Scale="8" />
-          <Property Name="ahorro_Navidad" Type="Decimal" Precision="16" Scale="6" />
-          <Property Name="ahorro_Escolar" Type="Decimal" Precision="16" Scale="6" />
-          <Property Name="fecha_Salario" Type="DateTime" Precision="0" />
-          <Property Name="Otros" Type="Decimal" Precision="16" Scale="6" />
-          <NavigationProperty Name="Persona" Relationship="MamirmiModel.fk_ID_Empleado_Salario" FromRole="Salario" ToRole="Persona" />
-        </EntityType>
-        <EntityType Name="Telefono">
-          <Key>
-            <PropertyRef Name="id" />
-            <PropertyRef Name="telefono1" />
-          </Key>
-          <Property Name="id" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
-          <Property Name="telefono1" Type="String" Nullable="false" MaxLength="17" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="Persona" Relationship="MamirmiModel.fk_id_telefono" FromRole="Telefono" ToRole="Persona" />
-        </EntityType>
-        <EntityType Name="Vacaciones">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Personaid" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
-          <Property Name="fecha_Entrada" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="fecha_Salida" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="dias" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Persona" Relationship="MamirmiModel.fk_ID_Empleado_Vacaciones" FromRole="Vacaciones" ToRole="Persona" />
-        </EntityType>
-        <Association Name="fk_ID_Empleado_Aguinaldo">
-          <End Role="Persona" Type="MamirmiModel.Persona" Multiplicity="1" />
-          <End Role="Aguinaldo" Type="MamirmiModel.Aguinaldo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Aguinaldo">
-              <PropertyRef Name="Personaid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ID_Empleado">
-          <End Role="Persona" Type="MamirmiModel.Persona" Multiplicity="1" />
-          <End Role="Empleado" Type="MamirmiModel.Empleado" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Empleado">
-              <PropertyRef Name="Personaid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ID_Empleado_Hora">
-          <End Role="Persona" Type="MamirmiModel.Persona" Multiplicity="1" />
-          <End Role="Hora" Type="MamirmiModel.Hora" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Hora">
-              <PropertyRef Name="Personaid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ID_Person_Incapacidad">
-          <End Role="Persona" Type="MamirmiModel.Persona" Multiplicity="1" />
-          <End Role="Incapacidad" Type="MamirmiModel.Incapacidad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Incapacidad">
-              <PropertyRef Name="Personaid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ID_Empleado_Salario">
-          <End Role="Persona" Type="MamirmiModel.Persona" Multiplicity="1" />
-          <End Role="Salario" Type="MamirmiModel.Salario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Salario">
-              <PropertyRef Name="Personaid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ID_Empleado_Vacaciones">
-          <End Role="Persona" Type="MamirmiModel.Persona" Multiplicity="1" />
-          <End Role="Vacaciones" Type="MamirmiModel.Vacaciones" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Vacaciones">
-              <PropertyRef Name="Personaid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_id_telefono">
-          <End Role="Persona" Type="MamirmiModel.Persona" Multiplicity="1" />
-          <End Role="Telefono" Type="MamirmiModel.Telefono" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Telefono">
-              <PropertyRef Name="id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MamirmiModelStoreContainer" CdmEntityContainer="MamirmiEntities">
-          <EntitySetMapping Name="Aguinaldo">
-            <EntityTypeMapping TypeName="MamirmiModel.Aguinaldo">
-              <MappingFragment StoreEntitySet="Aguinaldo">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Personaid" ColumnName="Personaid" />
-                <ScalarProperty Name="Monto" ColumnName="Monto" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Empleado">
-            <EntityTypeMapping TypeName="MamirmiModel.Empleado">
-              <MappingFragment StoreEntitySet="Empleado">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Personaid" ColumnName="Personaid" />
-                <ScalarProperty Name="cuenta_BN" ColumnName="cuenta_BN" />
-                <ScalarProperty Name="cuenta_BP" ColumnName="cuenta_BP" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Hora">
-            <EntityTypeMapping TypeName="MamirmiModel.Hora">
-              <MappingFragment StoreEntitySet="Hora">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Personaid" ColumnName="Personaid" />
-                <ScalarProperty Name="fecha_Inicial" ColumnName="fecha_Inicial" />
-                <ScalarProperty Name="fecha_Final" ColumnName="fecha_Final" />
-                <ScalarProperty Name="horas_Ordinarias" ColumnName="horas_Ordinarias" />
-                <ScalarProperty Name="horas_Extra" ColumnName="horas_Extra" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Incapacidad">
-            <EntityTypeMapping TypeName="MamirmiModel.Incapacidad">
-              <MappingFragment StoreEntitySet="Incapacidad">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Personaid" ColumnName="Personaid" />
-                <ScalarProperty Name="fecha_Salida" ColumnName="fecha_Salida" />
-                <ScalarProperty Name="fecha_Entrada" ColumnName="fecha_Entrada" />
-                <ScalarProperty Name="informacion" ColumnName="informacion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Persona">
             <EntityTypeMapping TypeName="MamirmiModel.Persona">
               <MappingFragment StoreEntitySet="Persona">
-                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="apellidos" ColumnName="apellidos" />
                 <ScalarProperty Name="edad" ColumnName="edad" />
@@ -506,41 +65,6 @@
                 <ScalarProperty Name="sexo" ColumnName="sexo" />
                 <ScalarProperty Name="Hijos" ColumnName="Hijos" />
                 <ScalarProperty Name="fecha_de_ingreso" ColumnName="fecha_de_ingreso" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Salario">
-            <EntityTypeMapping TypeName="MamirmiModel.Salario">
-              <MappingFragment StoreEntitySet="Salario">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Personaid" ColumnName="Personaid" />
-                <ScalarProperty Name="salario_Bruto" ColumnName="salario_Bruto" />
-                <ScalarProperty Name="salario_Neto" ColumnName="salario_Neto" />
-                <ScalarProperty Name="Jornada" ColumnName="Jornada" />
-                <ScalarProperty Name="CCSS" ColumnName="CCSS" />
-                <ScalarProperty Name="ahorro_Navidad" ColumnName="ahorro_Navidad" />
-                <ScalarProperty Name="ahorro_Escolar" ColumnName="ahorro_Escolar" />
-                <ScalarProperty Name="fecha_Salario" ColumnName="fecha_Salario" />
-                <ScalarProperty Name="Otros" ColumnName="Otros" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Telefono">
-            <EntityTypeMapping TypeName="MamirmiModel.Telefono">
-              <MappingFragment StoreEntitySet="Telefono">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="telefono1" ColumnName="telefono" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Vacaciones">
-            <EntityTypeMapping TypeName="MamirmiModel.Vacaciones">
-              <MappingFragment StoreEntitySet="Vacaciones">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Personaid" ColumnName="Personaid" />
-                <ScalarProperty Name="fecha_Entrada" ColumnName="fecha_Entrada" />
-                <ScalarProperty Name="fecha_Salida" ColumnName="fecha_Salida" />
-                <ScalarProperty Name="dias" ColumnName="dias" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
