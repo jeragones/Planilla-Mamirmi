@@ -25,7 +25,6 @@ namespace Mamirmi
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            String prueba = "";
             SqlConnection myConnection = new SqlConnection("Data Source=localhost;Initial Catalog=prueba_login;Integrated Security=True");
             try
             {
