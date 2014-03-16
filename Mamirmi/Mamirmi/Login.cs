@@ -11,7 +11,7 @@ namespace Mamirmi
     class Login
     {
 
-        public static bool log_in(string user, string pass)
+        public static object[] log_in(string user, string pass)
         {
             SqlConnection conexion = new SqlConnection("Data Source=localhost;Initial Catalog=Mamirmi;Integrated Security=True");
             conexion.Open();
@@ -20,13 +20,14 @@ namespace Mamirmi
 
             if (eject.Read() == true)
             {
-                return true;
+                var us = eject.GetInt32(3);
+                return new object[] { true, us };
 
             }
 
             else
             {
-                return false;
+                return new object[] { false, 0 };
             }
             conexion.Close();
 

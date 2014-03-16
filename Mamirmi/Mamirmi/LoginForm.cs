@@ -29,11 +29,22 @@ namespace Mamirmi
             try
             {
                 myConnection.Open();
-
-                if (Login.log_in(txtUsuario.Text, txtContraseña.Text) == true)
+                object[] res = Login.log_in(txtUsuario.Text, txtContraseña.Text);
+                if (res[0].Equals(true))
                 {
+                    if (res[1].Equals(1))
+                    {
+                        MessageBox.Show("Conexión Establecida\n Bienvenido\n Tipo de Usuario: Administrador");
 
-                    MessageBox.Show("Conexión Establecida\n Bienvenido");
+                    }
+                    if (res[1].Equals(2))
+                    {
+                        MessageBox.Show("Conexión Establecida\n Bienvenido\n Tipo de Usuario: Recursos Humanos ");
+                    }
+                    if (res[1].Equals(3))
+                    {
+                        MessageBox.Show("Conexión Establecida\n Bienvenido\n Tipo de Usuario: Planilla");
+                    }
                     this.Dispose();
                 }
                 else
@@ -48,6 +59,8 @@ namespace Mamirmi
             txtContraseña.Clear();
             txtUsuario.Clear();
             txtUsuario.Focus();
+            
+
             
         }
     }
