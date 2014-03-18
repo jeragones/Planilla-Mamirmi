@@ -16,7 +16,7 @@ namespace Mamirmi
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());//(new LoginForm());
+            Application.Run(new LoginForm());// (new Form1());
         }
     }
 }
