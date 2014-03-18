@@ -22,5 +22,19 @@ namespace Mamirmi
             nn.Show();
             this.Hide();
         }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            buscar_Personas nn = new buscar_Personas();
+            nn.Show();
+            this.Hide();
+        }
+
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            registro_Empleados nn = new registro_Empleados();
+            nn.Show();
+            this.Hide();
+        }
     }
 }

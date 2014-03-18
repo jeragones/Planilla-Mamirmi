@@ -25,7 +25,7 @@ namespace Mamirmi
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            SqlConnection myConnection = new SqlConnection("Data Source=localhost;Initial Catalog=prueba_login;Integrated Security=True");
+            SqlConnection myConnection = new SqlConnection("Data Source=localhost;Initial Catalog=Mamirmi;Integrated Security=True");
             try
             {
                 myConnection.Open();
@@ -38,14 +38,15 @@ namespace Mamirmi
 
                     }
                     if (res[1].Equals(2))
-                    {
-                        MessageBox.Show("Conexión Establecida\n Bienvenido\n Tipo de Usuario: Recursos Humanos ");
+                    {                        
+                        Form1 nn = new Form1();
+                        nn.Show();
+                        this.Hide();
                     }
                     if (res[1].Equals(3))
                     {
                         MessageBox.Show("Conexión Establecida\n Bienvenido\n Tipo de Usuario: Planilla");
                     }
-                    this.Dispose();
                 }
                 else
                 {

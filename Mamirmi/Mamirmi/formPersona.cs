@@ -25,7 +25,7 @@ namespace Mamirmi
             if (button1.Text == "Agregar")
             {
                 Persona nn = new Persona();
-                nn.ID = Int32.Parse(textBox1.Text);
+                nn.ID = textBox1.Text;
                 nn.nombre = textBox2.Text;
                 nn.apellidos = textBox3.Text;
                 nn.edad = Int32.Parse(numericUpDown1.Value.ToString());
@@ -42,7 +42,7 @@ namespace Mamirmi
             else
             {
                 Persona nn = new Persona();
-                nn.ID = Int32.Parse(textBox1.Text);
+                nn.ID = textBox1.Text;
                 nn.nombre = textBox2.Text;
                 nn.apellidos = textBox3.Text;
                 nn.edad = Int32.Parse(numericUpDown1.Value.ToString());
@@ -131,6 +131,20 @@ namespace Mamirmi
                 dateTimePicker1.Value = DateTime.Today;
                 button1.Text = "Agregar";
             }
+        }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            registro_Empleados nn = new registro_Empleados();
+            nn.Show();
+            this.Hide();
+        }
+
+        private void personasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formPersona nn = new formPersona();
+            nn.Show();
+            this.Hide();
         }
     }
 }

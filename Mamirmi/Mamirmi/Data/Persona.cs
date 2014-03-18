@@ -14,7 +14,12 @@ namespace Mamirmi.Data
     
     public partial class Persona
     {
-        public int ID { get; set; }
+        public Persona()
+        {
+            this.Empleado = new HashSet<Empleado>();
+        }
+    
+        public string ID { get; set; }
         public string nombre { get; set; }
         public string apellidos { get; set; }
         public int edad { get; set; }
@@ -24,5 +29,8 @@ namespace Mamirmi.Data
         public string sexo { get; set; }
         public Nullable<int> Hijos { get; set; }
         public System.DateTime fecha_de_ingreso { get; set; }
+    
+        public virtual ICollection<Empleado> Empleado { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }
