@@ -45,8 +45,10 @@
             this.personasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Buscar)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_Informacion
@@ -109,7 +111,7 @@
             "Nombre",
             "Identificación",
             "Carné"});
-            this.cmb_Filtrar.Location = new System.Drawing.Point(76, 44);
+            this.cmb_Filtrar.Location = new System.Drawing.Point(78, 14);
             this.cmb_Filtrar.Name = "cmb_Filtrar";
             this.cmb_Filtrar.Size = new System.Drawing.Size(156, 21);
             this.cmb_Filtrar.TabIndex = 11;
@@ -117,7 +119,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 44);
+            this.label2.Location = new System.Drawing.Point(3, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 10;
@@ -126,7 +128,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 82);
+            this.label1.Location = new System.Drawing.Point(3, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 9;
@@ -134,7 +136,7 @@
             // 
             // btn_Buscar
             // 
-            this.btn_Buscar.Location = new System.Drawing.Point(256, 79);
+            this.btn_Buscar.Location = new System.Drawing.Point(275, 46);
             this.btn_Buscar.Name = "btn_Buscar";
             this.btn_Buscar.Size = new System.Drawing.Size(75, 23);
             this.btn_Buscar.TabIndex = 8;
@@ -144,7 +146,7 @@
             // 
             // txt_Buscar
             // 
-            this.txt_Buscar.Location = new System.Drawing.Point(76, 79);
+            this.txt_Buscar.Location = new System.Drawing.Point(78, 48);
             this.txt_Buscar.Name = "txt_Buscar";
             this.txt_Buscar.Size = new System.Drawing.Size(156, 20);
             this.txt_Buscar.TabIndex = 7;
@@ -187,28 +189,39 @@
             // buscarToolStripMenuItem
             // 
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.buscarToolStripMenuItem.Text = "Buscar";
             this.buscarToolStripMenuItem.Click += new System.EventHandler(this.buscarToolStripMenuItem_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel1.Controls.Add(this.btn_Buscar);
+            this.panel1.Controls.Add(this.cmb_Filtrar);
+            this.panel1.Controls.Add(this.txt_Buscar);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(12, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(544, 82);
+            this.panel1.TabIndex = 26;
             // 
             // buscar_Personas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 348);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.lbl_Informacion);
             this.Controls.Add(this.dgv_Buscar);
-            this.Controls.Add(this.cmb_Filtrar);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btn_Buscar);
-            this.Controls.Add(this.txt_Buscar);
             this.Name = "buscar_Personas";
             this.Text = "buscar_Personas";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Buscar)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,5 +246,6 @@
         private System.Windows.Forms.ToolStripMenuItem personasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
     }
 }
