@@ -34,10 +34,18 @@ namespace Mamirmi
                 nn.direccion = textBox4.Text;
                 nn.sexo = comboBox3.SelectedItem.ToString();
                 nn.Hijos = Int32.Parse(numericUpDown2.Value.ToString());
-                nn.fecha_de_ingreso = dateTimePicker1.Value.Date;
-                label11.Text = Controlador.Insert_Persona(nn);
-                dataGridView1.DataSource = Controlador.view_Personas(textBox5.Text);
-                rowautosize();
+                if (nn.ID != "" && nn.nombre != "" && nn.apellidos != "" && nn.direccion != "")
+                {
+                    nn.fecha_de_ingreso = dateTimePicker1.Value.Date;
+                    label11.Text = Controlador.Insert_Persona(nn);
+                    dataGridView1.DataSource = Controlador.view_Personas(textBox5.Text);
+                    rowautosize();
+                }
+                else
+                {
+                    label11.Text = "Revisar parametros de entrada.";
+                    label11.ForeColor = Color.Red;
+                }
             }
             else
             {
