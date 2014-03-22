@@ -11,26 +11,19 @@ using System.Windows.Forms;
 
 namespace Mamirmi
 {
-    public partial class buscar_Personas : Form
+    public partial class Mamirmi_Buscadores : Form
     {
-        public buscar_Personas()
+        public Mamirmi_Buscadores()
         {
 
             InitializeComponent();
         }
 
         metodos_Buscadores instancia = new metodos_Buscadores();
-        private void label2_Click(object sender, EventArgs e)
-        {
+        
 
-        }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btn_Buscar_Click(object sender, EventArgs e)
+        /*private void btn_Buscar_Click(object sender, EventArgs e)
         {
             if (cmb_Filtrar.Text == "Carné" && txt_Buscar.Text != "")
             {
@@ -50,45 +43,18 @@ namespace Mamirmi
                   MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
 
-        }
+        }*/
 
-        private void cmb_Filtrar_SelectedIndexChanged(object sender, EventArgs e)
+        private void btn_NuevoEmpleado_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_Informacion_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_Buscar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            registro_Empleados nn = new registro_Empleados();
+            Mamirmi_Registro nn = new Mamirmi_Registro();
             nn.Show();
             this.Hide();
         }
 
-        private void personasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btn_Atras_Click(object sender, EventArgs e)
         {
-            formPersona nn = new formPersona();
-            nn.Show();
-            this.Hide();
-        }
-
-        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            buscar_Personas nn = new buscar_Personas();
+            Mamirmi_Loggin nn = new Mamirmi_Loggin();
             nn.Show();
             this.Hide();
         }

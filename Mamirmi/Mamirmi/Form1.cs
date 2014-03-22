@@ -18,14 +18,14 @@ namespace Mamirmi
         }
         private void personasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formPersona nn = new formPersona();
+            Mamirmi_Registro nn = new Mamirmi_Registro();
             nn.Show();
             this.Hide();
         }
 
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            buscar_Personas nn = new buscar_Personas();
+            Mamirmi_Buscadores nn = new Mamirmi_Buscadores();
             nn.Show();
             this.Hide();
         }

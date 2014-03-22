@@ -70,11 +70,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="buscar_Personas.cs">
+    <Compile Include="Mamirmi_Buscadores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="buscar_Personas.Designer.cs">
-      <DependentUpon>buscar_Personas.cs</DependentUpon>
+    <Compile Include="Mamirmi_Buscadores.Designer.cs">
+      <DependentUpon>Mamirmi_Buscadores.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\DBcontroller.cs" />
     <Compile Include="Data\Empleado.cs">
@@ -107,18 +107,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="formPersona.cs">
+    <Compile Include="Mamirmi_Registro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formPersona.Designer.cs">
-      <DependentUpon>formPersona.cs</DependentUpon>
+    <Compile Include="Mamirmi_Registro.Designer.cs">
+      <DependentUpon>Mamirmi_Registro.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs" />
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Mamirmi_Loggin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <Compile Include="Mamirmi_Loggin.Designer.cs">
+      <DependentUpon>Mamirmi_Loggin.cs</DependentUpon>
     </Compile>
     <Compile Include="MamirmiDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -134,17 +134,17 @@
     <Compile Include="registro_Empleados.Designer.cs">
       <DependentUpon>registro_Empleados.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="buscar_Personas.resx">
-      <DependentUpon>buscar_Personas.cs</DependentUpon>
+    <EmbeddedResource Include="Mamirmi_Buscadores.resx">
+      <DependentUpon>Mamirmi_Buscadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formPersona.resx">
-      <DependentUpon>formPersona.cs</DependentUpon>
+    <EmbeddedResource Include="Mamirmi_Registro.resx">
+      <DependentUpon>Mamirmi_Registro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="Mamirmi_Loggin.resx">
+      <DependentUpon>Mamirmi_Loggin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

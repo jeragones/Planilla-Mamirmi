@@ -12,15 +12,15 @@ using Mamirmi.Data;
 
 namespace Mamirmi
 {
-    public partial class formPersona : Form
+    public partial class Mamirmi_Registro : Form
     {
         DBcontroller Controlador=new DBcontroller();        
-        public formPersona()
+        public Mamirmi_Registro()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        /*private void button1_Click(object sender, EventArgs e)
         {
             if (button1.Text == "Agregar")
             {
@@ -150,7 +150,64 @@ namespace Mamirmi
 
         private void personasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formPersona nn = new formPersona();
+            Mamirmi_Registro nn = new Mamirmi_Registro();
+            nn.Show();
+            this.Hide();
+        }*/
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            //if (button1.Text == "Agregar")
+            //{
+                Persona nn = new Persona();
+                nn.ID = txt_Cedula.Text;
+                nn.nombre = txt_Nombre.Text;
+                nn.apellidos = txt_Apellidos.Text;
+                nn.fecha_de_ingreso = DateTime.UtcNow.Date;
+                //nn.carne = txt_Carne.Text;
+                //nn.cuenta_BN = txt_BancoNacional.Text;
+                //nn.cuenta_BP = txt_BancoPopular.Text;
+                //nn.departamento = cmb_Departamento.Text;
+                //nn.numeroComprobante = txt_NumeroComprabante.Text;
+                //nn.estado = true;
+
+                if (nn.ID != "" && nn.nombre != "" && nn.apellidos != "" /*&& nn.carne != "" && 
+                  * nn.fecha_de_ingreso.GetHashCode() != 0 && nn.departamento != "" && nn.cuenta_BN != "" &&
+                    nn.numeroComprobante != 0*/)
+                {
+                    nn.fecha_de_ingreso = DateTime.UtcNow.Date;
+                    //label11.Text = Controlador.Insert_Persona(nn);
+                    //dataGridView1.DataSource = Controlador.view_Personas(textBox5.Text);
+                    //rowautosize();
+                }
+                else
+                {
+                    lbl_error.Text = "Revisar parametros de entrada.";
+                    lbl_error.ForeColor = Color.Red;
+                }
+        /*    }
+          //  else
+            //{
+                Persona nn = new Persona();
+                nn.ID = textBox1.Text;
+                nn.nombre = textBox2.Text;
+                nn.apellidos = textBox3.Text;
+                //nn.edad = Int32.Parse(numericUpDown1.Value.ToString());
+                //nn.EstadoCivil = comboBox2.SelectedItem.ToString();
+                //nn.nacionalidad = comboBox1.SelectedItem.ToString();
+                //nn.direccion = textBox4.Text;
+                //nn.sexo = comboBox3.SelectedItem.ToString();
+                //nn.Hijos = Int32.Parse(numericUpDown2.Value.ToString());
+                //nn.fecha_de_ingreso = dateTimePicker1.Value;
+                //label11.Text = Controlador.Update_Persona(nn);
+                //dataGridView1.DataSource = Controlador.view_Personas(textBox5.Text);
+                rowautosize();
+            }*/
+        }
+
+        private void btn_Salir_Click(object sender, EventArgs e)
+        {
+            Mamirmi_Loggin nn = new Mamirmi_Loggin();
             nn.Show();
             this.Hide();
         }

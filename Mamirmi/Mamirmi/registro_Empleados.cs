@@ -71,7 +71,7 @@ namespace Mamirmi
 
         private void personasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formPersona nn = new formPersona();
+            Mamirmi_Registro nn = new Mamirmi_Registro();
             nn.Show();
             this.Hide();
         }

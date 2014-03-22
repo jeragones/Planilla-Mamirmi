@@ -11,19 +11,14 @@ using System.Data.SqlClient;
 
 namespace Mamirmi
 {
-    public partial class LoginForm : Form
+    public partial class Mamirmi_Loggin : Form
     {
-        public LoginForm()
+        public Mamirmi_Loggin()
         {
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnIngresar_Click(object sender, EventArgs e)
+        private void btn_Ingresar_Click(object sender, EventArgs e)
         {
             SqlConnection myConnection = new SqlConnection("Data Source=localhost;Initial Catalog=Mamirmi;Integrated Security=True");
             try
@@ -38,8 +33,9 @@ namespace Mamirmi
 
                     }
                     if (res[1].Equals(2))
-                    {                        
-                        Form1 nn = new Form1();
+                    {
+                        Mamirmi_Registro nn = new Mamirmi_Registro();
+                        //Form1 nn = new Form1();
                         nn.Show();
                         this.Hide();
                     }
@@ -60,9 +56,6 @@ namespace Mamirmi
             txtContraseña.Clear();
             txtUsuario.Clear();
             txtUsuario.Focus();
-            
-
-            
         }
     }
 }
