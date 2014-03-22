@@ -24,7 +24,7 @@ namespace Buscadores {
         public void buscar_PersonasCarne(string carne,DataGridView tabla) {
             SqlConnection conn = conectar();
            // string consulta = "select * from Empleado where carne=" + carne;
-            string consulta = "SELECT nombre + ' ' + apellidos as Nombre,Carne, Departamento,Fecha_de_ingreso,Fecha_Salida FROM persona "
+            string consulta = "SELECT nombre + ' ' + apellidos as Nombre,ID, Carne, Departamento,Fecha_de_ingreso,Fecha_Salida FROM persona "
             + " INNER JOIN Empleado on Empleado.carne =" + "'" + carne + "'" + "and Empleado.Personaid = persona.id";
             SqlCommand cmd = new SqlCommand(consulta, conn);
             SqlDataReader dr;
@@ -35,9 +35,10 @@ namespace Buscadores {
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(tabla);
                 row.Cells[0].Value = dr.GetString(dr.GetOrdinal("Nombre")).ToString();
-                row.Cells[1].Value = dr.GetString(dr.GetOrdinal("Carne")).ToString();
-                row.Cells[2].Value = dr.GetString(dr.GetOrdinal("Departamento")).ToString();
-                row.Cells[3].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_de_ingreso")).ToShortDateString();
+                row.Cells[1].Value = dr.GetString(dr.GetOrdinal("ID")).ToString();
+                row.Cells[2].Value = dr.GetString(dr.GetOrdinal("Carne")).ToString();
+                row.Cells[3].Value = dr.GetString(dr.GetOrdinal("Departamento")).ToString();
+                row.Cells[4].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_de_ingreso")).ToShortDateString();
                 tabla.Rows.Add(row);
                // tabla.Rows[n].Cells[4].Value = dr.GetString(dr.GetOrdinal("Fecha_Salida")).ToString();
                 
@@ -50,7 +51,7 @@ namespace Buscadores {
         public void buscar_PersonasNombre(string Nombre,DataGridView tabla)
         {
             SqlConnection conn = conectar();
-            string consulta = "SELECT nombre + ' ' + apellidos as Nombre,Carne, Departamento,Fecha_de_ingreso,Fecha_Salida FROM persona "+ 
+            string consulta = "SELECT nombre + ' ' + apellidos as Nombre,ID,Carne, Departamento,Fecha_de_ingreso,Fecha_Salida FROM persona " + 
 				"INNER JOIN Empleado on persona.nombre like" + "'%"+ Nombre +"%'";
             SqlCommand cmd = new SqlCommand(consulta, conn);
             SqlDataReader dr;
@@ -61,9 +62,10 @@ namespace Buscadores {
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(tabla);
                 row.Cells[0].Value = dr.GetString(dr.GetOrdinal("Nombre")).ToString();
-                row.Cells[1].Value = dr.GetString(dr.GetOrdinal("Carne")).ToString();
-                row.Cells[2].Value = dr.GetString(dr.GetOrdinal("Departamento")).ToString();
-                row.Cells[3].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_de_ingreso")).ToShortDateString();
+                row.Cells[1].Value = dr.GetString(dr.GetOrdinal("ID")).ToString();
+                row.Cells[2].Value = dr.GetString(dr.GetOrdinal("Carne")).ToString();
+                row.Cells[3].Value = dr.GetString(dr.GetOrdinal("Departamento")).ToString();
+                row.Cells[4].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_de_ingreso")).ToShortDateString();
                 tabla.Rows.Add(row);
                 // tabla.Rows[n].Cells[4].Value = dr.GetString(dr.GetOrdinal("Fecha_Salida")).ToString();
 
@@ -74,7 +76,7 @@ namespace Buscadores {
         public void buscar_PersonasId(string Id,DataGridView tabla)
         {
             SqlConnection conn = conectar();
-            string consulta = "SELECT nombre + ' ' + apellidos as Nombre,Carne, Departamento,Fecha_de_ingreso,Fecha_Salida FROM persona " + 
+            string consulta = "SELECT nombre + ' ' + apellidos as Nombre,ID,Carne, Departamento,Fecha_de_ingreso,Fecha_Salida FROM persona " + 
 				"INNER JOIN Empleado on persona.id =" + "'"+ Id +"'" +"and Empleado.Personaid = persona.id";
             SqlCommand cmd = new SqlCommand(consulta, conn);
             SqlDataReader dr;
@@ -85,9 +87,10 @@ namespace Buscadores {
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(tabla);
                 row.Cells[0].Value = dr.GetString(dr.GetOrdinal("Nombre")).ToString();
-                row.Cells[1].Value = dr.GetString(dr.GetOrdinal("Carne")).ToString();
-                row.Cells[2].Value = dr.GetString(dr.GetOrdinal("Departamento")).ToString();
-                row.Cells[3].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_de_ingreso")).ToShortDateString();
+                row.Cells[1].Value = dr.GetString(dr.GetOrdinal("ID")).ToString();
+                row.Cells[2].Value = dr.GetString(dr.GetOrdinal("Carne")).ToString();
+                row.Cells[3].Value = dr.GetString(dr.GetOrdinal("Departamento")).ToString();
+                row.Cells[4].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_de_ingreso")).ToShortDateString();
                 tabla.Rows.Add(row);
                 // tabla.Rows[n].Cells[4].Value = dr.GetString(dr.GetOrdinal("Fecha_Salida")).ToString();
 
