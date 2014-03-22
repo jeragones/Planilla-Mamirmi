@@ -26,7 +26,6 @@ namespace Mamirmi.Data
         }
     
         public DbSet<Empleado> Empleado { get; set; }
-        public DbSet<Persona> Persona { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
     }
 }

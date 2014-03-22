@@ -14,7 +14,7 @@ namespace Mamirmi.Controller
     class DBcontroller
     {
 
-        public string Insert_Persona(Persona nn)
+        public string Insert_Empleado(Empleado nn)
         {
             string result=string.Empty;
             //using (TransactionScope scope = new TransactionScope())
@@ -22,9 +22,8 @@ namespace Mamirmi.Controller
             using (MamirmiEntities BDmodel = new MamirmiEntities())
             {
 
-                    BDmodel.Persona.Add(nn);
-                    bool a = BDmodel.ChangeTracker.HasChanges(); //double check if there was any change detected by EF or not?
-                    if (a)
+                    BDmodel.Empleado.Add(nn);
+                    if ( BDmodel.ChangeTracker.HasChanges())//double check if there was any change detected by EF or not?
                     {
                         BDmodel.SaveChanges();
                         result = "Correcto: Empleado Agregado con Exito";
@@ -34,26 +33,17 @@ namespace Mamirmi.Controller
                         result = "Error: Revisar datos de entrada";
                     }
             }
-            //}
             return result;
         }
 
-        public string Update_Persona(Persona newp)
+        public string Update_Persona(Empleado newp)
         {
             using (MamirmiEntities BDmodel = new MamirmiEntities())
             {
-                Persona oldp = BDmodel.Persona.SingleOrDefault(x=> x.ID==newp.ID);
+                Empleado oldp = BDmodel.Empleado.SingleOrDefault(x=> x.ID==newp.ID);
                 oldp.nombre = newp.nombre;
                 oldp.apellidos = newp.apellidos;
-                oldp.edad = newp.edad;
-                oldp.EstadoCivil = newp.EstadoCivil;
-                oldp.nacionalidad = newp.nacionalidad;
-                oldp.direccion = newp.direccion;
-                oldp.sexo = newp.sexo;
-                oldp.Hijos = newp.Hijos;
-                oldp.fecha_de_ingreso = newp.fecha_de_ingreso;
-                bool a = BDmodel.ChangeTracker.HasChanges(); //double check if there was any change detected by EF or not?
-                if (a)
+                if (BDmodel.ChangeTracker.HasChanges())
                 {
                     BDmodel.SaveChanges();
                     return "Correcto: Empleado Actualizado con Exito";
@@ -69,7 +59,7 @@ namespace Mamirmi.Controller
         {
             using (MamirmiEntities BDmodel = new MamirmiEntities())
             {
-                var query = from x in BDmodel.Persona
+                var query = from x in BDmodel.Empleado
                             where x.nombre.Contains(input) || x.apellidos.Contains(input)
                             select new {x.nombre, x.apellidos};
                     
@@ -82,11 +72,11 @@ namespace Mamirmi.Controller
             }
         }
 
-        public Persona Get_Persona(string nom,string ap)
+        public Empleado Get_Persona(string iD)
         {
             using (MamirmiEntities BDmodel = new MamirmiEntities())
             {
-                Persona query = BDmodel.Persona.SingleOrDefault(x => x.nombre == nom && x.apellidos == ap);
+                Empleado query = BDmodel.Empleado.SingleOrDefault(x => x.ID == iD);
                 return query;
             }
         }

@@ -14,22 +14,18 @@ namespace Mamirmi.Data
     
     public partial class Empleado
     {
-        public int id { get; set; }
-        public string Personaid { get; set; }
+        public string ID { get; set; }
+        public string nombre { get; set; }
+        public string apellidos { get; set; }
+        public string carne { get; set; }
+        public System.DateTime fecha_Ingreso { get; set; }
+        public Nullable<System.DateTime> fecha_Salida { get; set; }
+        public string departamento { get; set; }
+        public bool estado { get; set; }
         public string cuenta_BN { get; set; }
         public string cuenta_BP { get; set; }
-        public string Profesion { get; set; }
-        public string Estudios { get; set; }
-        public string Manipulacion_Alimentos { get; set; }
-        public string Enfermedades { get; set; }
-        public string carne { get; set; }
-        public string experiencia { get; set; }
-        public string fecha_Ingreso { get; set; }
-        public string departamento { get; set; }
-        public string descripcion_Salida { get; set; }
-        public string fecha_Salida { get; set; }
-        public string estado { get; set; }
+        public Nullable<int> numeroComprobante { get; set; }
     
-        public virtual Persona Persona { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

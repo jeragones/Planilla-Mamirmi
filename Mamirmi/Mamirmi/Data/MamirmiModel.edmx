@@ -7,52 +7,27 @@
       <Schema Namespace="MamirmiModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="MamirmiModelStoreContainer">
           <EntitySet Name="Empleado" EntityType="MamirmiModel.Store.Empleado" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Persona" EntityType="MamirmiModel.Store.Persona" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Usuario" EntityType="MamirmiModel.Store.Usuario" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_Empleado_Personaid" Association="MamirmiModel.Store.FK_Empleado_Personaid">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Empleado" EntitySet="Empleado" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Usuario_Persona" Association="MamirmiModel.Store.FK_Usuario_Persona">
-            <End Role="Persona" EntitySet="Persona" />
+          <AssociationSet Name="FK_Usuario_Empleado" Association="MamirmiModel.Store.FK_Usuario_Empleado">
             <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Empleado">
-          <Key>
-            <PropertyRef Name="id" />
-            <PropertyRef Name="Personaid" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Personaid" Type="varchar" Nullable="false" MaxLength="30" />
-          <Property Name="cuenta_BN" Type="varchar" Nullable="false" MaxLength="15" />
-          <Property Name="cuenta_BP" Type="varchar" Nullable="false" MaxLength="15" />
-          <Property Name="Profesion" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="Estudios" Type="varchar" Nullable="false" MaxLength="11" />
-          <Property Name="Manipulacion_Alimentos" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="Enfermedades" Type="varchar" Nullable="false" MaxLength="150" />
-          <Property Name="carne" Type="varchar" Nullable="false" MaxLength="10" />
-          <Property Name="experiencia" Type="varchar" Nullable="false" MaxLength="10" />
-          <Property Name="fecha_Ingreso" Type="varchar" Nullable="false" MaxLength="11" />
-          <Property Name="departamento" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="descripcion_Salida" Type="varchar" MaxLength="100" />
-          <Property Name="fecha_Salida" Type="varchar" MaxLength="11" />
-          <Property Name="estado" Type="varchar" Nullable="false" MaxLength="10" />
-        </EntityType>
-        <EntityType Name="Persona">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="varchar" Nullable="false" MaxLength="30" />
           <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="30" />
           <Property Name="apellidos" Type="varchar" Nullable="false" MaxLength="30" />
-          <Property Name="edad" Type="int" Nullable="false" />
-          <Property Name="nacionalidad" Type="varchar" MaxLength="30" />
-          <Property Name="EstadoCivil" Type="varchar" MaxLength="30" />
-          <Property Name="direccion" Type="varchar" MaxLength="200" />
-          <Property Name="sexo" Type="varchar" Nullable="false" MaxLength="30" />
-          <Property Name="Hijos" Type="int" />
-          <Property Name="fecha_de_ingreso" Type="datetime" Nullable="false" />
+          <Property Name="carne" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="fecha_Ingreso" Type="date" Nullable="false" />
+          <Property Name="fecha_Salida" Type="date" />
+          <Property Name="departamento" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+          <Property Name="cuenta_BN" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="cuenta_BP" Type="varchar" MaxLength="15" />
+          <Property Name="numeroComprobante" Type="int" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -63,31 +38,17 @@
           <Property Name="Contraseña" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="TipoUsuario" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Empleado_Personaid">
-          <End Role="Persona" Type="MamirmiModel.Store.Persona" Multiplicity="1">
+        <Association Name="FK_Usuario_Empleado">
+          <End Role="Usuario" Type="MamirmiModel.Store.Usuario" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Empleado" Type="MamirmiModel.Store.Empleado" Multiplicity="*" />
+          <End Role="Empleado" Type="MamirmiModel.Store.Empleado" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="ID" />
+            <Principal Role="Usuario">
+              <PropertyRef Name="IdPersona" />
             </Principal>
             <Dependent Role="Empleado">
-              <PropertyRef Name="Personaid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Usuario_Persona">
-          <End Role="Persona" Type="MamirmiModel.Store.Persona" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Usuario" Type="MamirmiModel.Store.Usuario" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
               <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Usuario">
-              <PropertyRef Name="IdPersona" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -98,55 +59,28 @@
       <Schema Namespace="MamirmiModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="MamirmiEntities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="Empleado" EntityType="MamirmiModel.Empleado" />
-          <EntitySet Name="Persona" EntityType="MamirmiModel.Persona" />
           <EntitySet Name="Usuario" EntityType="MamirmiModel.Usuario" />
-          <AssociationSet Name="FK_Empleado_Personaid" Association="MamirmiModel.FK_Empleado_Personaid">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Empleado" EntitySet="Empleado" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Usuario_Persona" Association="MamirmiModel.FK_Usuario_Persona">
-            <End Role="Persona" EntitySet="Persona" />
+          <AssociationSet Name="FK_Usuario_Empleado" Association="MamirmiModel.FK_Usuario_Empleado">
             <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Empleado">
-          <Key>
-            <PropertyRef Name="id" />
-            <PropertyRef Name="Personaid" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Personaid" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="cuenta_BN" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="cuenta_BP" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="Profesion" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Estudios" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="false" />
-          <Property Name="Manipulacion_Alimentos" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="Enfermedades" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
-          <Property Name="carne" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="experiencia" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="fecha_Ingreso" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="false" />
-          <Property Name="departamento" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="descripcion_Salida" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="fecha_Salida" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
-          <Property Name="estado" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="Persona" Relationship="MamirmiModel.FK_Empleado_Personaid" FromRole="Empleado" ToRole="Persona" />
-        </EntityType>
-        <EntityType Name="Persona">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="apellidos" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="edad" Type="Int32" Nullable="false" />
-          <Property Name="nacionalidad" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="EstadoCivil" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="direccion" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-          <Property Name="sexo" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="Hijos" Type="Int32" />
-          <Property Name="fecha_de_ingreso" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Empleado" Relationship="MamirmiModel.FK_Empleado_Personaid" FromRole="Persona" ToRole="Empleado" />
-          <NavigationProperty Name="Usuario" Relationship="MamirmiModel.FK_Usuario_Persona" FromRole="Persona" ToRole="Usuario" />
+          <Property Name="carne" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="fecha_Ingreso" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fecha_Salida" Type="DateTime" Precision="0" />
+          <Property Name="departamento" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <Property Name="cuenta_BN" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="cuenta_BP" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="numeroComprobante" Type="Int32" />
+          <NavigationProperty Name="Usuario" Relationship="MamirmiModel.FK_Usuario_Empleado" FromRole="Empleado" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -156,33 +90,19 @@
           <Property Name="Usuario1" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
           <Property Name="Contraseña" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="TipoUsuario" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Persona" Relationship="MamirmiModel.FK_Usuario_Persona" FromRole="Usuario" ToRole="Persona" />
+          <NavigationProperty Name="Empleado" Relationship="MamirmiModel.FK_Usuario_Empleado" FromRole="Usuario" ToRole="Empleado" />
         </EntityType>
-        <Association Name="FK_Empleado_Personaid">
-          <End Role="Persona" Type="MamirmiModel.Persona" Multiplicity="1">
+        <Association Name="FK_Usuario_Empleado">
+          <End Role="Usuario" Type="MamirmiModel.Usuario" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Empleado" Type="MamirmiModel.Empleado" Multiplicity="*" />
+          <End Role="Empleado" Type="MamirmiModel.Empleado" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="ID" />
+            <Principal Role="Usuario">
+              <PropertyRef Name="IdPersona" />
             </Principal>
             <Dependent Role="Empleado">
-              <PropertyRef Name="Personaid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Usuario_Persona">
-          <End Role="Persona" Type="MamirmiModel.Persona" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Usuario" Type="MamirmiModel.Usuario" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
               <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Usuario">
-              <PropertyRef Name="IdPersona" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -195,37 +115,17 @@
           <EntitySetMapping Name="Empleado">
             <EntityTypeMapping TypeName="MamirmiModel.Empleado">
               <MappingFragment StoreEntitySet="Empleado">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Personaid" ColumnName="Personaid" />
-                <ScalarProperty Name="cuenta_BN" ColumnName="cuenta_BN" />
-                <ScalarProperty Name="cuenta_BP" ColumnName="cuenta_BP" />
-                <ScalarProperty Name="Profesion" ColumnName="Profesion" />
-                <ScalarProperty Name="Estudios" ColumnName="Estudios" />
-                <ScalarProperty Name="Manipulacion_Alimentos" ColumnName="Manipulacion_Alimentos" />
-                <ScalarProperty Name="Enfermedades" ColumnName="Enfermedades" />
-                <ScalarProperty Name="carne" ColumnName="carne" />
-                <ScalarProperty Name="experiencia" ColumnName="experiencia" />
-                <ScalarProperty Name="fecha_Ingreso" ColumnName="fecha_Ingreso" />
-                <ScalarProperty Name="departamento" ColumnName="departamento" />
-                <ScalarProperty Name="descripcion_Salida" ColumnName="descripcion_Salida" />
-                <ScalarProperty Name="fecha_Salida" ColumnName="fecha_Salida" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Persona">
-            <EntityTypeMapping TypeName="MamirmiModel.Persona">
-              <MappingFragment StoreEntitySet="Persona">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="apellidos" ColumnName="apellidos" />
-                <ScalarProperty Name="edad" ColumnName="edad" />
-                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
-                <ScalarProperty Name="EstadoCivil" ColumnName="EstadoCivil" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="sexo" ColumnName="sexo" />
-                <ScalarProperty Name="Hijos" ColumnName="Hijos" />
-                <ScalarProperty Name="fecha_de_ingreso" ColumnName="fecha_de_ingreso" />
+                <ScalarProperty Name="carne" ColumnName="carne" />
+                <ScalarProperty Name="fecha_Ingreso" ColumnName="fecha_Ingreso" />
+                <ScalarProperty Name="fecha_Salida" ColumnName="fecha_Salida" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="cuenta_BN" ColumnName="cuenta_BN" />
+                <ScalarProperty Name="cuenta_BP" ColumnName="cuenta_BP" />
+                <ScalarProperty Name="numeroComprobante" ColumnName="numeroComprobante" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -253,7 +153,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>

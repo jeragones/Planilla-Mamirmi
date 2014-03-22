@@ -70,13 +70,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mamirmi_Buscadores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Mamirmi_Buscadores.Designer.cs">
-      <DependentUpon>Mamirmi_Buscadores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controller\DBcontroller.cs" />
     <Compile Include="Data\Empleado.cs">
       <DependentUpon>MamirmiModel.tt</DependentUpon>
     </Compile>
@@ -95,12 +88,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MamirmiModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Data\Persona.cs">
-      <DependentUpon>MamirmiModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data\Usuario.cs">
       <DependentUpon>MamirmiModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Mamirmi_Buscadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mamirmi_Buscadores.Designer.cs">
+      <DependentUpon>Mamirmi_Buscadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\DBcontroller.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

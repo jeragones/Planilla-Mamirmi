@@ -157,52 +157,31 @@ namespace Mamirmi
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            //if (button1.Text == "Agregar")
-            //{
-                Persona nn = new Persona();
+            if ((txt_Cedula.Text != "")
+                && (txt_Carne.Text != "")
+                && (txt_Nombre.Text != "")
+                && (txt_Apellidos.Text != "")
+                )
+            {
+                Empleado nn = new Empleado();
                 nn.ID = txt_Cedula.Text;
+                nn.carne = txt_Carne.Text;
                 nn.nombre = txt_Nombre.Text;
                 nn.apellidos = txt_Apellidos.Text;
-                nn.fecha_de_ingreso = DateTime.UtcNow.Date;
-                //nn.carne = txt_Carne.Text;
-                //nn.cuenta_BN = txt_BancoNacional.Text;
-                //nn.cuenta_BP = txt_BancoPopular.Text;
-                //nn.departamento = cmb_Departamento.Text;
-                //nn.numeroComprobante = txt_NumeroComprabante.Text;
-                //nn.estado = true;
+                
+                nn.cuenta_BN = txt_BancoNacional.Text;
+                nn.cuenta_BP = txt_BancoPopular.Text;
+                nn.departamento = cmb_Departamento.SelectedItem.ToString();
+                nn.numeroComprobante = Int32.Parse(txt_NumeroComprabante.Text);
 
-                if (nn.ID != "" && nn.nombre != "" && nn.apellidos != "" /*&& nn.carne != "" && 
-                  * nn.fecha_de_ingreso.GetHashCode() != 0 && nn.departamento != "" && nn.cuenta_BN != "" &&
-                    nn.numeroComprobante != 0*/)
-                {
-                    nn.fecha_de_ingreso = DateTime.UtcNow.Date;
-                    //label11.Text = Controlador.Insert_Persona(nn);
-                    //dataGridView1.DataSource = Controlador.view_Personas(textBox5.Text);
-                    //rowautosize();
-                }
-                else
-                {
-                    lbl_error.Text = "Revisar parametros de entrada.";
-                    lbl_error.ForeColor = Color.Red;
-                }
-        /*    }
-          //  else
-            //{
-                Persona nn = new Persona();
-                nn.ID = textBox1.Text;
-                nn.nombre = textBox2.Text;
-                nn.apellidos = textBox3.Text;
-                //nn.edad = Int32.Parse(numericUpDown1.Value.ToString());
-                //nn.EstadoCivil = comboBox2.SelectedItem.ToString();
-                //nn.nacionalidad = comboBox1.SelectedItem.ToString();
-                //nn.direccion = textBox4.Text;
-                //nn.sexo = comboBox3.SelectedItem.ToString();
-                //nn.Hijos = Int32.Parse(numericUpDown2.Value.ToString());
-                //nn.fecha_de_ingreso = dateTimePicker1.Value;
-                //label11.Text = Controlador.Update_Persona(nn);
-                //dataGridView1.DataSource = Controlador.view_Personas(textBox5.Text);
-                rowautosize();
-            }*/
+                lbl_error.Text=  Controlador.Insert_Empleado(nn);
+            }
+            else 
+            {
+                lbl_error.Text = "Error: Favor revisar datos de entrada.";
+                lbl_error.ForeColor = Color.Red;
+            }
+                
         }
 
         private void btn_Salir_Click(object sender, EventArgs e)
@@ -210,6 +189,11 @@ namespace Mamirmi
             Mamirmi_Loggin nn = new Mamirmi_Loggin();
             nn.Show();
             this.Hide();
+        }
+
+        private void txt_Cedula_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

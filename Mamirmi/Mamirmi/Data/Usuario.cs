@@ -19,6 +19,6 @@ namespace Mamirmi.Data
         public string Contraseña { get; set; }
         public int TipoUsuario { get; set; }
     
-        public virtual Persona Persona { get; set; }
+        public virtual Empleado Empleado { get; set; }
     }
 }
