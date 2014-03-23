@@ -157,31 +157,40 @@ namespace Mamirmi
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if ((txt_Cedula.Text != "")
-                && (txt_Carne.Text != "")
-                && (txt_Nombre.Text != "")
-                && (txt_Apellidos.Text != "")
-                )
+            try
             {
-                Empleado nn = new Empleado();
-                nn.ID = txt_Cedula.Text;
-                nn.carne = txt_Carne.Text;
-                nn.nombre = txt_Nombre.Text;
-                nn.apellidos = txt_Apellidos.Text;
-                
-                nn.cuenta_BN = txt_BancoNacional.Text;
-                nn.cuenta_BP = txt_BancoPopular.Text;
-                nn.departamento = cmb_Departamento.SelectedItem.ToString();
-                nn.numeroComprobante = Int32.Parse(txt_NumeroComprabante.Text);
+                if ((txt_Cedula.Text != "")
+                    && (txt_Carne.Text != "")
+                    && (txt_Nombre.Text != "")
+                    && (txt_Apellidos.Text != "")
+                    )
+                {
+                    Empleado nn = new Empleado();
+                    nn.ID = txt_Cedula.Text;
+                    nn.carne = txt_Carne.Text;
+                    nn.nombre = txt_Nombre.Text;
+                    nn.apellidos = txt_Apellidos.Text;
+                    nn.fecha_Ingreso = DateTime.Today;
+                    nn.estado = true;
 
-                lbl_error.Text=  Controlador.Insert_Empleado(nn);
+                    nn.cuenta_BN = txt_BancoNacional.Text;
+                    nn.cuenta_BP = txt_BancoPopular.Text;
+                    nn.departamento = cmb_Departamento.SelectedItem.ToString();
+                    nn.numeroComprobante = Int32.Parse(txt_NumeroComprabante.Text);
+
+                    lbl_error.Text = Controlador.Insert_Empleado(nn);
+                }
+                else
+                {
+                    lbl_error.Text = "Error: Favor revisar datos de entrada.";
+                    lbl_error.ForeColor = Color.Red;
+                }
             }
-            else 
+            catch(Exception )
             {
-                lbl_error.Text = "Error: Favor revisar datos de entrada.";
+                lbl_error.Text = "Error inesperado";
                 lbl_error.ForeColor = Color.Red;
-            }
-                
+            }           
         }
 
         private void btn_Salir_Click(object sender, EventArgs e)

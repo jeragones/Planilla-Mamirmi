@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using Mamirmi.Data;
 using System.Transactions;
 
-using System.Collections.Generic;
-using System.Transactions;
 
 namespace Mamirmi.Controller
 {
@@ -21,9 +19,13 @@ namespace Mamirmi.Controller
             //{
             using (MamirmiEntities BDmodel = new MamirmiEntities())
             {
-
+                var query = from x in BDmodel.Empleado
+                            where x.carne == nn.carne && x.estado == true
+                            select x;
+                if (query==null)
+                {
                     BDmodel.Empleado.Add(nn);
-                    if ( BDmodel.ChangeTracker.HasChanges())//double check if there was any change detected by EF or not?
+                    if (BDmodel.ChangeTracker.HasChanges())//double check if there was any change detected by EF or not?
                     {
                         BDmodel.SaveChanges();
                         result = "Correcto: Empleado Agregado con Exito";
@@ -32,6 +34,11 @@ namespace Mamirmi.Controller
                     {
                         result = "Error: Revisar datos de entrada";
                     }
+                }
+                else
+                {
+                    result = "Error: El carnet ingresado se encuentra en uso.";
+                }
             }
             return result;
         }
