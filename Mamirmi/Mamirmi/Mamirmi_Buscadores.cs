@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Mamirmi.Data;
+using Mamirmi.Controller;
 
 namespace Mamirmi
 {
@@ -81,6 +83,34 @@ namespace Mamirmi
         private void cmb_DepartamentoBusqueda_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                DBcontroller controlador = new DBcontroller();
+                dgv_Buscar.DataSource = controlador.view_Personas(txt_Buscar.Text);
+            }
+            catch (Exception)
+            {
+                label2.Text = "Error Inesperado favor intente mas tarde.";
+                label2.ForeColor = Color.Red;
+            }
+        }
+
+        private void txt_Buscar_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DBcontroller controlador = new DBcontroller();
+                dgv_Buscar.DataSource = controlador.view_Personas(txt_Buscar.Text,true);
+            }
+            catch (Exception er)
+            {
+                label2.Text = "Error Inesperado favor intente mas tarde.";
+                label2.ForeColor = Color.Red;
+            }
         }
     }
 }

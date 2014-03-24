@@ -63,19 +63,16 @@ namespace Mamirmi.Controller
             }
         }
 
-        public object view_Personas(string input)
+        public object view_Personas(string input,bool estado=true)
         {
             using (MamirmiEntities BDmodel = new MamirmiEntities())
             {
                 var query = from x in BDmodel.Empleado
-                            where x.nombre.Contains(input) || x.apellidos.Contains(input)
-                            select new {x.nombre, x.apellidos};
-                    
-                //var query=BDmodel.Persona.Select( x=> new Persona {
-                //    nombre= x.nombre,
-                //    apellidos= x.apellidos
-                //}).ToList();
-
+                            where (x.nombre.Contains(input)         || x.apellidos.Contains(input)        ||
+                                  x.carne.Contains(input)           || x.ID.Contains(input)               ||
+                                  x.departamento.Contains(input)    || x.nombre.Contains(input)           )
+                                 && (x.estado==estado)
+                            select new {x.nombre, x.apellidos};                
                 return query.ToList();
             }
         }
