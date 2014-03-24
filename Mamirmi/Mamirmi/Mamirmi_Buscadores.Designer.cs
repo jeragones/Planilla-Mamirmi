@@ -46,7 +46,6 @@
             this.chk_Carne = new System.Windows.Forms.CheckBox();
             this.chk_Identificacion = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btn_NuevoEmpleado = new System.Windows.Forms.Button();
             this.dgv_Buscar = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -250,23 +249,12 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.btn_NuevoEmpleado);
             this.panel3.Controls.Add(this.dgv_Buscar);
             this.panel3.Controls.Add(this.btn_Atras);
             this.panel3.Location = new System.Drawing.Point(12, 158);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(620, 350);
             this.panel3.TabIndex = 27;
-            // 
-            // btn_NuevoEmpleado
-            // 
-            this.btn_NuevoEmpleado.Location = new System.Drawing.Point(503, 284);
-            this.btn_NuevoEmpleado.Name = "btn_NuevoEmpleado";
-            this.btn_NuevoEmpleado.Size = new System.Drawing.Size(104, 33);
-            this.btn_NuevoEmpleado.TabIndex = 2;
-            this.btn_NuevoEmpleado.Text = "Nuevo Empleado";
-            this.btn_NuevoEmpleado.UseVisualStyleBackColor = true;
-            this.btn_NuevoEmpleado.Click += new System.EventHandler(this.btn_NuevoEmpleado_Click);
             // 
             // dgv_Buscar
             // 
@@ -331,11 +319,11 @@
             // 
             // btn_Atras
             // 
-            this.btn_Atras.Location = new System.Drawing.Point(409, 284);
+            this.btn_Atras.Location = new System.Drawing.Point(532, 287);
             this.btn_Atras.Name = "btn_Atras";
             this.btn_Atras.Size = new System.Drawing.Size(75, 33);
             this.btn_Atras.TabIndex = 1;
-            this.btn_Atras.Text = "Atras";
+            this.btn_Atras.Text = "Volver";
             this.btn_Atras.UseVisualStyleBackColor = true;
             this.btn_Atras.Click += new System.EventHandler(this.btn_Atras_Click);
             // 
@@ -382,7 +370,6 @@
         private System.Windows.Forms.CheckBox chk_Carne;
         private System.Windows.Forms.CheckBox chk_Identificacion;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btn_NuevoEmpleado;
         private System.Windows.Forms.DataGridView dgv_Buscar;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;

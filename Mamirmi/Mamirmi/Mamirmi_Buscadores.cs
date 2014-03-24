@@ -30,7 +30,7 @@ namespace Mamirmi
 
         private void btn_Atras_Click(object sender, EventArgs e)
         {
-            Mamirmi_Loggin nn = new Mamirmi_Loggin();
+            Mamirmi_Principal nn = new Mamirmi_Principal();
             nn.Show();
             this.Hide();
         }

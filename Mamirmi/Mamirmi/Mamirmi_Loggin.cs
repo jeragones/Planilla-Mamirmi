@@ -34,8 +34,7 @@ namespace Mamirmi
                     }
                     if (res[1].Equals(2))
                     {
-                        Mamirmi_Registro nn = new Mamirmi_Registro();
-                        //Form1 nn = new Form1();
+                        Mamirmi_Principal nn = new Mamirmi_Principal();
                         nn.Show();
                         this.Hide();
                     }
