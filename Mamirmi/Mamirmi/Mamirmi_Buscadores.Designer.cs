@@ -32,7 +32,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_Buscar = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -40,13 +40,13 @@
             this.chk_Entrada = new System.Windows.Forms.CheckBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cmb_DepartamentoBusqueda = new System.Windows.Forms.ComboBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chk_Estado = new System.Windows.Forms.CheckBox();
             this.chk_Nombre = new System.Windows.Forms.CheckBox();
             this.chk_Carne = new System.Windows.Forms.CheckBox();
             this.chk_Identificacion = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_NuevoEmpleado = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_Buscar = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,11 +55,12 @@
             this.Salida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_Atras = new System.Windows.Forms.Button();
+            this.cbx_activo = new System.Windows.Forms.ComboBox();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Buscar)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -75,9 +76,10 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.cbx_activo);
             this.panel4.Controls.Add(this.button1);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.txt_Buscar);
             this.panel4.Location = new System.Drawing.Point(382, 38);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(250, 114);
@@ -101,12 +103,12 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Buscar ...";
             // 
-            // textBox1
+            // txt_Buscar
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(231, 20);
-            this.textBox1.TabIndex = 7;
+            this.txt_Buscar.Location = new System.Drawing.Point(6, 40);
+            this.txt_Buscar.Name = "txt_Buscar";
+            this.txt_Buscar.Size = new System.Drawing.Size(231, 20);
+            this.txt_Buscar.TabIndex = 7;
             // 
             // panel2
             // 
@@ -114,7 +116,7 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.cmb_DepartamentoBusqueda);
-            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Controls.Add(this.chk_Estado);
             this.panel2.Controls.Add(this.chk_Nombre);
             this.panel2.Controls.Add(this.chk_Carne);
             this.panel2.Controls.Add(this.chk_Identificacion);
@@ -193,15 +195,15 @@
             this.cmb_DepartamentoBusqueda.Size = new System.Drawing.Size(167, 21);
             this.cmb_DepartamentoBusqueda.TabIndex = 6;
             // 
-            // checkBox1
+            // chk_Estado
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(12, 81);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(59, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Estado";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chk_Estado.AutoSize = true;
+            this.chk_Estado.Location = new System.Drawing.Point(12, 81);
+            this.chk_Estado.Name = "chk_Estado";
+            this.chk_Estado.Size = new System.Drawing.Size(59, 17);
+            this.chk_Estado.TabIndex = 4;
+            this.chk_Estado.Text = "Estado";
+            this.chk_Estado.UseVisualStyleBackColor = true;
             // 
             // chk_Nombre
             // 
@@ -237,7 +239,7 @@
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.btn_NuevoEmpleado);
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.dgv_Buscar);
             this.panel3.Controls.Add(this.btn_Atras);
             this.panel3.Location = new System.Drawing.Point(12, 158);
             this.panel3.Name = "panel3";
@@ -254,12 +256,12 @@
             this.btn_NuevoEmpleado.UseVisualStyleBackColor = true;
             this.btn_NuevoEmpleado.Click += new System.EventHandler(this.btn_NuevoEmpleado_Click);
             // 
-            // dataGridView1
+            // dgv_Buscar
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_Buscar.AllowUserToAddRows = false;
+            this.dgv_Buscar.AllowUserToDeleteRows = false;
+            this.dgv_Buscar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Buscar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.Cedula,
             this.dataGridViewTextBoxColumn2,
@@ -267,11 +269,11 @@
             this.Ingreso,
             this.Salida,
             this.Estado});
-            this.dataGridView1.Location = new System.Drawing.Point(7, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(600, 240);
-            this.dataGridView1.TabIndex = 0;
+            this.dgv_Buscar.Location = new System.Drawing.Point(7, 16);
+            this.dgv_Buscar.Name = "dgv_Buscar";
+            this.dgv_Buscar.ReadOnly = true;
+            this.dgv_Buscar.Size = new System.Drawing.Size(600, 240);
+            this.dgv_Buscar.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -325,6 +327,17 @@
             this.btn_Atras.UseVisualStyleBackColor = true;
             this.btn_Atras.Click += new System.EventHandler(this.btn_Atras_Click);
             // 
+            // cbx_activo
+            // 
+            this.cbx_activo.FormattingEnabled = true;
+            this.cbx_activo.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
+            this.cbx_activo.Location = new System.Drawing.Point(6, 74);
+            this.cbx_activo.Name = "cbx_activo";
+            this.cbx_activo.Size = new System.Drawing.Size(142, 21);
+            this.cbx_activo.TabIndex = 10;
+            // 
             // Mamirmi_Buscadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,7 +356,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Buscar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -355,7 +368,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_Buscar;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel5;
@@ -363,13 +376,13 @@
         private System.Windows.Forms.CheckBox chk_Entrada;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox cmb_DepartamentoBusqueda;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chk_Estado;
         private System.Windows.Forms.CheckBox chk_Nombre;
         private System.Windows.Forms.CheckBox chk_Carne;
         private System.Windows.Forms.CheckBox chk_Identificacion;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btn_NuevoEmpleado;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_Buscar;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -378,5 +391,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Salida;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.Button btn_Atras;
+        private System.Windows.Forms.ComboBox cbx_activo;
     }
 }

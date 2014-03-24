@@ -20,30 +20,6 @@ namespace Mamirmi
         }
 
         metodos_Buscadores instancia = new metodos_Buscadores();
-        
-
-
-        /*private void btn_Buscar_Click(object sender, EventArgs e)
-        {
-            if (cmb_Filtrar.Text == "Carné" && txt_Buscar.Text != "")
-            {
-                instancia.buscar_PersonasCarne(txt_Buscar.Text, dgv_Buscar);
-            }
-            else if (cmb_Filtrar.Text == "Nombre" && txt_Buscar.Text != "")
-            {
-                instancia.buscar_PersonasNombre(txt_Buscar.Text, dgv_Buscar);
-            }
-            else if (cmb_Filtrar.Text == "Identificación" && txt_Buscar.Text != "")
-            {
-                instancia.buscar_PersonasId(txt_Buscar.Text, dgv_Buscar);
-            }
-            else
-            {
-                MessageBox.Show("Datos Incorrectos", "Error!",
-                  MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-            }
-
-        }*/
 
         private void btn_NuevoEmpleado_Click(object sender, EventArgs e)
         {
@@ -62,6 +38,44 @@ namespace Mamirmi
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dgv_Buscar.Rows.Clear();
+
+            if (chk_Nombre.Checked)
+            {
+                instancia.buscar_PersonasNombre(txt_Buscar.Text, dgv_Buscar);
+            }
+            if (chk_Carne.Checked)
+            {
+                instancia.buscar_PersonasCarne(txt_Buscar.Text, dgv_Buscar);
+            }
+            if (chk_Identificacion.Checked)
+            {
+                instancia.buscar_PersonasId(txt_Buscar.Text, dgv_Buscar);
+            }
+            if (chk_Estado.Checked)
+            {
+                instancia.buscar_PersonasEstado(cbx_activo.Text, dgv_Buscar);
+            }
+            if (!chk_Identificacion.Checked && !chk_Nombre.Checked && !chk_Carne.Checked && !chk_Estado.Checked)
+            {
+                instancia.buscar_PersonasSinFiltro(dgv_Buscar);
+            }
+        }
+
+        private void chk_Estado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chk_Estado.Checked)
+            {
+                cbx_activo.Visible = true;
+            }
+            else
+            {
+                cbx_activo.Visible = false;
+            }
         }
     }
 }
