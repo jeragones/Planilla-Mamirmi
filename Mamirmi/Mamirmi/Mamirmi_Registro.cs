@@ -179,6 +179,14 @@ namespace Mamirmi
                     nn.numeroComprobante = Int32.Parse(txt_NumeroComprabante.Text);
 
                     lbl_error.Text = Controlador.Insert_Empleado(nn);
+
+                    txt_Apellidos.Text = "";
+                    txt_BancoNacional.Text = "";
+                    txt_BancoPopular.Text = "";
+                    txt_Carne.Text = "";
+                    txt_Cedula.Text = "";
+                    txt_Nombre.Text = "";
+                    txt_NumeroComprabante.Text = "";
                 }
                 else
                 {
