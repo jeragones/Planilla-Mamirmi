@@ -77,5 +77,10 @@ namespace Mamirmi
                 cbx_activo.Visible = false;
             }
         }
+
+        private void cmb_DepartamentoBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

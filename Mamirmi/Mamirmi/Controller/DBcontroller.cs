@@ -19,9 +19,10 @@ namespace Mamirmi.Controller
             //{
             using (MamirmiEntities BDmodel = new MamirmiEntities())
             {
-                var query = from x in BDmodel.Empleado
-                            where x.carne == nn.carne && x.estado == true
-                            select x;
+                //var query = from x in BDmodel.Empleado
+                //            where x.carne == nn.carne
+                //            select x;
+                Empleado query = BDmodel.Empleado.SingleOrDefault(x => x.carne == nn.carne && x.estado == true);
                 if (query==null)
                 {
                     BDmodel.Empleado.Add(nn);

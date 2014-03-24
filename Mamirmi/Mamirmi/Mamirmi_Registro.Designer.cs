@@ -357,7 +357,6 @@
             this.Name = "Mamirmi_Registro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Empleado";
-            this.Load += new System.EventHandler(this.formPersona_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -370,10 +369,6 @@
 
         }
 
-        private void formPersona_Load(object sender, System.EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
 
         #endregion
 

@@ -30,6 +30,7 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.cbx_activo = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_Buscar = new System.Windows.Forms.TextBox();
@@ -55,7 +56,6 @@
             this.Salida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_Atras = new System.Windows.Forms.Button();
-            this.cbx_activo = new System.Windows.Forms.ComboBox();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -84,6 +84,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(250, 114);
             this.panel4.TabIndex = 30;
+            // 
+            // cbx_activo
+            // 
+            this.cbx_activo.FormattingEnabled = true;
+            this.cbx_activo.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
+            this.cbx_activo.Location = new System.Drawing.Point(6, 74);
+            this.cbx_activo.Name = "cbx_activo";
+            this.cbx_activo.Size = new System.Drawing.Size(142, 21);
+            this.cbx_activo.TabIndex = 10;
             // 
             // button1
             // 
@@ -194,6 +205,7 @@
             this.cmb_DepartamentoBusqueda.Name = "cmb_DepartamentoBusqueda";
             this.cmb_DepartamentoBusqueda.Size = new System.Drawing.Size(167, 21);
             this.cmb_DepartamentoBusqueda.TabIndex = 6;
+            this.cmb_DepartamentoBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmb_DepartamentoBusqueda_SelectedIndexChanged);
             // 
             // chk_Estado
             // 
@@ -326,17 +338,6 @@
             this.btn_Atras.Text = "Atras";
             this.btn_Atras.UseVisualStyleBackColor = true;
             this.btn_Atras.Click += new System.EventHandler(this.btn_Atras_Click);
-            // 
-            // cbx_activo
-            // 
-            this.cbx_activo.FormattingEnabled = true;
-            this.cbx_activo.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
-            this.cbx_activo.Location = new System.Drawing.Point(6, 74);
-            this.cbx_activo.Name = "cbx_activo";
-            this.cbx_activo.Size = new System.Drawing.Size(142, 21);
-            this.cbx_activo.TabIndex = 10;
             // 
             // Mamirmi_Buscadores
             // 
