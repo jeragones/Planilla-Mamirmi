@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Mamirmi.Data;
+using Mamirmi.Controller;
 
 namespace Mamirmi
 {
@@ -40,41 +42,55 @@ namespace Mamirmi
 
         }
 
+         private void rowautosize()
+         {
+             dgv_Buscar.Columns[0].Width = (dgv_Buscar.Width / 5)-20;
+             dgv_Buscar.Columns[1].Width = (dgv_Buscar.Width / 5);
+             dgv_Buscar.Columns[2].Width = (dgv_Buscar.Width / 5);
+             dgv_Buscar.Columns[3].Width = (dgv_Buscar.Width / 5);
+             dgv_Buscar.Columns[4].Width = (dgv_Buscar.Width / 5);
+             dgv_Buscar.BackgroundColor = this.BackColor;
+             dgv_Buscar.BorderStyle = BorderStyle.None;
+         }
+
         private void button1_Click_1(object sender, EventArgs e)
         {
-            dgv_Buscar.Rows.Clear();
-
-            if (chk_Nombre.Checked)
+            try
             {
-                instancia.buscar_PersonasNombre(txt_Buscar.Text, dgv_Buscar);
+                DBcontroller controlador = new DBcontroller();
+                label1.Text = "";
+                dgv_Buscar.DataSource = controlador.view_Personas(txt_Buscar.Text);
+                rowautosize();
             }
-            if (chk_Carne.Checked)
+            catch (Exception)
             {
-                instancia.buscar_PersonasCarne(txt_Buscar.Text, dgv_Buscar);
-            }
-            if (chk_Identificacion.Checked)
-            {
-                instancia.buscar_PersonasId(txt_Buscar.Text, dgv_Buscar);
-            }
-            if (chk_Estado.Checked)
-            {
-                instancia.buscar_PersonasEstado(cbx_activo.Text, dgv_Buscar);
-            }
-            if (!chk_Identificacion.Checked && !chk_Nombre.Checked && !chk_Carne.Checked && !chk_Estado.Checked)
-            {
-                instancia.buscar_PersonasSinFiltro(dgv_Buscar);
+                label1.Text = "Error Inesperado favor intente mas tarde.";
+                label1.ForeColor = Color.Red;
             }
         }
 
-        private void chk_Estado_CheckedChanged(object sender, EventArgs e)
+        private void txt_Buscar_TextChanged(object sender, EventArgs e)
         {
-            if (chk_Estado.Checked)
+            try
             {
-                cbx_activo.Visible = true;
+                DBcontroller controlador = new DBcontroller();
+                label1.Text = "";
+                dgv_Buscar.DataSource = controlador.view_Personas(txt_Buscar.Text);
+                rowautosize();
             }
-            else
+            catch (Exception)
             {
-                cbx_activo.Visible = false;
+                label1.Text = "Error Inesperado favor intente mas tarde.";
+                label1.ForeColor = Color.Red;
+            }
+        }
+
+        private void dgv_Buscar_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.Value != null)
+            {
+                e.Value = e.Value.ToString().ToUpper();
+                e.FormattingApplied = true;
             }
         }
     }

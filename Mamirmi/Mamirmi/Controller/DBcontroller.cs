@@ -71,8 +71,8 @@ namespace Mamirmi.Controller
                                   x.carne.Contains(input)           || x.ID.Contains(input)               ||
                                   x.departamento.Contains(input)    || x.nombre.Contains(input)           )
                                  && (x.estado==estado)
-                            select new {x.nombre, x.apellidos};                
-                //return query.ToList();
+                            select new {x.carne,x.ID,x.nombre, x.apellidos, x.departamento};                
+                return query.ToList();
 
                 /*var query = from x in BDmodel.Persona
                             where x.nombre.Contains(input) || x.apellidos.Contains(input)
@@ -82,23 +82,23 @@ namespace Mamirmi.Controller
                 //    apellidos= x.apellidos
                 //}).ToList();
                 
-                List<Tuple<string,string>> my = new List<Tuple<string,string>>();
-                String s = "";
-                String m = "";
-                var tuple = Tuple.Create("","");
-                foreach (var item in query)
-                {
-                    s = item.nombre.ToString().ToUpper();
-                    m = item.apellidos.ToString().ToUpper();
-                    tuple = Tuple.Create(s,m);
-                    my.Add(tuple);
-                    s="";
-                    m="";
-                }
-                var wordQuery = from word in my
-                                select word;
+                //List<Tuple<string,string>> my = new List<Tuple<string,string>>();
+                //String s = "";
+                //String m = "";
+                //var tuple = Tuple.Create("","");
+                //foreach (var item in query)
+                //{
+                //    s = item.nombre.ToString().ToUpper();
+                //    m = item.apellidos.ToString().ToUpper();
+                //    tuple = Tuple.Create(s,m);
+                //    my.Add(tuple);
+                //    s="";
+                //    m="";
+                //}
+                //var wordQuery = from word in my
+                //                select word;
 
-                return wordQuery.ToList();
+                //return wordQuery.ToList();
             }
         }
 
