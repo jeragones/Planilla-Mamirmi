@@ -72,7 +72,7 @@ namespace Mamirmi.Controller
                                   x.departamento.Contains(input)    || x.nombre.Contains(input)           )
                                  && (x.estado==estado)
                             select new {x.nombre, x.apellidos};                
-                return query.ToList();
+                //return query.ToList();
 
                 /*var query = from x in BDmodel.Persona
                             where x.nombre.Contains(input) || x.apellidos.Contains(input)
@@ -85,7 +85,7 @@ namespace Mamirmi.Controller
                 List<Tuple<string,string>> my = new List<Tuple<string,string>>();
                 String s = "";
                 String m = "";
-                var tuple = Tuple.Create("allam","bas");
+                var tuple = Tuple.Create("","");
                 foreach (var item in query)
                 {
                     s = item.nombre.ToString().ToUpper();

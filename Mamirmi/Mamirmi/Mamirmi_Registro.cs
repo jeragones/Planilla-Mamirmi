@@ -191,28 +191,36 @@ namespace Mamirmi
                     && (txt_Apellidos.Text != "")
                     )
                 {
-                    Empleado nn = new Empleado();
-                    nn.ID = txt_Cedula.Text;
-                    nn.carne = txt_Carne.Text;
-                    nn.nombre = txt_Nombre.Text;
-                    nn.apellidos = txt_Apellidos.Text;
-                    nn.fecha_Ingreso = DateTime.Today;
-                    nn.estado = true;
+                    if (txt_Cedula.TextLength >= 9)
+                    {
+                        Empleado nn = new Empleado();
+                        nn.ID = txt_Cedula.Text;
+                        nn.carne = txt_Carne.Text;
+                        nn.nombre = txt_Nombre.Text;
+                        nn.apellidos = txt_Apellidos.Text;
+                        nn.fecha_Ingreso = DateTime.Today;
+                        nn.estado = true;
 
-                    nn.cuenta_BN = txt_BancoNacional.Text;
-                    nn.cuenta_BP = txt_BancoPopular.Text;
-                    nn.departamento = cmb_Departamento.SelectedItem.ToString();
-                    nn.numeroComprobante = Int32.Parse(txt_NumeroComprabante.Text);
+                        nn.cuenta_BN = txt_BancoNacional.Text;
+                        nn.cuenta_BP = txt_BancoPopular.Text;
+                        nn.departamento = cmb_Departamento.SelectedItem.ToString();
+                        nn.numeroComprobante = Int32.Parse(txt_NumeroComprabante.Text);
 
-                    lbl_error.Text = Controlador.Insert_Empleado(nn);
+                        lbl_error.Text = Controlador.Insert_Empleado(nn);
 
-                    txt_Apellidos.Text = "";
-                    txt_BancoNacional.Text = "";
-                    txt_BancoPopular.Text = "";
-                    txt_Carne.Text = "";
-                    txt_Cedula.Text = "";
-                    txt_Nombre.Text = "";
-                    txt_NumeroComprabante.Text = "";
+                        txt_Apellidos.Text = "";
+                        txt_BancoNacional.Text = "";
+                        txt_BancoPopular.Text = "";
+                        txt_Carne.Text = "";
+                        txt_Cedula.Text = "";
+                        txt_Nombre.Text = "";
+                        txt_NumeroComprabante.Text = "";
+                    }
+                    else
+                    {
+                        lbl_error.Text = "La cédula debe contener al menos 9 números.";
+                        lbl_error.ForeColor = Color.Red;
+                    }
                 }
                 else
                 {
@@ -234,6 +242,17 @@ namespace Mamirmi
             this.Hide();
         }
 
+        private void txt_Cedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                lbl_error.Text = "Sólo se permiten números en la identificación";
+                lbl_error.ForeColor = Color.Red;
+                //MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
         private void txt_Cedula_TextChanged(object sender, EventArgs e)
         {
 
