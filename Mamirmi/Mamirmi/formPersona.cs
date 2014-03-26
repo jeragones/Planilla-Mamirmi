@@ -14,7 +14,7 @@ namespace Mamirmi
 {
     public partial class formPersona : Form
     {
-        DBcontroller Controlador=new DBcontroller();        
+        DBcontroller Controlador=new DBcontroller();
         public formPersona()
         {
             InitializeComponent();
@@ -34,16 +34,24 @@ namespace Mamirmi
                 nn.direccion = textBox4.Text;
                 nn.sexo = comboBox3.SelectedItem.ToString();
                 nn.Hijos = Int32.Parse(numericUpDown2.Value.ToString());
-                if (nn.ID != "" && nn.nombre != "" && nn.apellidos != "" && nn.direccion != "")
+                if (nn.ID.Length >= 9)
                 {
-                    nn.fecha_de_ingreso = dateTimePicker1.Value.Date;
-                    label11.Text = Controlador.Insert_Persona(nn);
-                    dataGridView1.DataSource = Controlador.view_Personas(textBox5.Text);
-                    rowautosize();
+                    if (nn.nombre != "" && nn.apellidos != "" && nn.direccion != "")
+                    {
+                        nn.fecha_de_ingreso = dateTimePicker1.Value.Date;
+                        label11.Text = Controlador.Insert_Persona(nn);
+                        dataGridView1.DataSource = Controlador.view_Personas(textBox5.Text);
+                        rowautosize();
+                    }
+                    else
+                    {
+                        label11.Text = "Revisar parametros de entrada.";
+                        label11.ForeColor = Color.Red;
+                    }
                 }
                 else
                 {
-                    label11.Text = "Revisar parametros de entrada.";
+                    label11.Text = "La cédula debe contener al menos 9 números.";
                     label11.ForeColor = Color.Red;
                 }
             }
@@ -70,6 +78,8 @@ namespace Mamirmi
         private void formPersona_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = Controlador.view_Personas(textBox5.Text);
+            dataGridView1.Columns[0].HeaderCell.Value = "Nombre";
+            dataGridView1.Columns[1].HeaderCell.Value = "Apellidos";
             rowautosize();
         }
 
@@ -89,6 +99,7 @@ namespace Mamirmi
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             Int32 selectedCellCount = dataGridView1.GetCellCount(DataGridViewElementStates.Selected);
             int[] selecion = new Int32[2];
             selecion = null;
@@ -104,11 +115,11 @@ namespace Mamirmi
                     for (int i = 0; i < selectedCellCount; i++)
                     {
                         selecion[0] = dataGridView1.SelectedCells[i].RowIndex;
-                        selecion[1] = dataGridView1.SelectedCells[i].ColumnIndex;
+                        selecion[1] = dataGridView1.SelectedCells[i].ColumnIndex;                       
                     }
 
                     Persona nn = Controlador.Get_Persona(dataGridView1.Rows[selecion[0]].Cells[0].Value.ToString(), dataGridView1.Rows[selecion[0]].Cells[1].Value.ToString());
-                    textBox1.Text=nn.ID.ToString();
+                    textBox1.Text=  nn.ID.ToString();
                     textBox2.Text = nn.nombre;
                     textBox3.Text = nn.apellidos;
                     numericUpDown1.Value = nn.edad;
@@ -124,9 +135,23 @@ namespace Mamirmi
             }
         }
 
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                label11.Text = "Sólo se permiten números en la identificación";
+                label11.ForeColor = Color.Red;
+                //MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+            if (textBox1.Text == "" && label11.Text != "Sólo se permiten números en la identificación"
+                && label11.Text != "La cédula debe contener al menos 9 números.")
             {
                 textBox2.Text = string.Empty;
                 textBox3.Text = string.Empty;
@@ -153,6 +178,11 @@ namespace Mamirmi
             formPersona nn = new formPersona();
             nn.Show();
             this.Hide();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

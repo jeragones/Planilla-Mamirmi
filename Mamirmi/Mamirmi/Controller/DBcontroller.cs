@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 using Mamirmi.Data;
 using System.Transactions;
 
-using System.Collections.Generic;
-using System.Transactions;
-
 namespace Mamirmi.Controller
 {
     class DBcontroller
@@ -71,14 +68,29 @@ namespace Mamirmi.Controller
             {
                 var query = from x in BDmodel.Persona
                             where x.nombre.Contains(input) || x.apellidos.Contains(input)
-                            select new {x.nombre, x.apellidos};
-                    
+                            select new { x.nombre, x.apellidos };
                 //var query=BDmodel.Persona.Select( x=> new Persona {
                 //    nombre= x.nombre,
                 //    apellidos= x.apellidos
                 //}).ToList();
+                
+                List<Tuple<string,string>> my = new List<Tuple<string,string>>();
+                String s = "";
+                String m = "";
+                var tuple = Tuple.Create("allam","bas");
+                foreach (var item in query)
+                {
+                    s = item.nombre.ToString().ToUpper();
+                    m = item.apellidos.ToString().ToUpper();
+                    tuple = Tuple.Create(s,m);
+                    my.Add(tuple);
+                    s="";
+                    m="";
+                }
+                var wordQuery = from word in my
+                                select word;
 
-                return query.ToList();
+                return wordQuery.ToList();
             }
         }
 
