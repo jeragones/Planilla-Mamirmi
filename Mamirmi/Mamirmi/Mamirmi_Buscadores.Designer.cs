@@ -205,7 +205,7 @@
             this.cmb_DepartamentoBusqueda.Name = "cmb_DepartamentoBusqueda";
             this.cmb_DepartamentoBusqueda.Size = new System.Drawing.Size(167, 21);
             this.cmb_DepartamentoBusqueda.TabIndex = 6;
-            this.cmb_DepartamentoBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmb_DepartamentoBusqueda_SelectedIndexChanged);
+            //this.cmb_DepartamentoBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmb_DepartamentoBusqueda_SelectedIndexChanged);
             // 
             // chk_Estado
             // 

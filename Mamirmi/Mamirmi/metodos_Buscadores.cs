@@ -44,6 +44,7 @@ namespace Buscadores {
             {
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(tabla);
+
                 row.Cells[0].Value = dr.GetString(dr.GetOrdinal("Nombre")).ToString();
                 row.Cells[1].Value = dr.GetString(dr.GetOrdinal("ID")).ToString();
                 row.Cells[2].Value = dr.GetString(dr.GetOrdinal("Carne")).ToString();
@@ -58,6 +59,11 @@ namespace Buscadores {
                 {
                     row.Cells[6].Value = "Inactivo";
                 }
+
+                /*row.Cells[0].Value = dr.GetString(dr.GetOrdinal("Nombre")).ToString().ToUpper();
+                row.Cells[1].Value = dr.GetString(dr.GetOrdinal("Carne")).ToString().ToUpper();
+                row.Cells[2].Value = dr.GetString(dr.GetOrdinal("Departamento")).ToString().ToUpper();
+                row.Cells[3].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_de_ingreso")).ToShortDateString();*/
                 tabla.Rows.Add(row);
                 // tabla.Rows[n].Cells[4].Value = dr.GetString(dr.GetOrdinal("Fecha_Salida")).ToString();
 
@@ -88,12 +94,13 @@ namespace Buscadores {
             while (dr.Read())
             {
                 DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(tabla); row.CreateCells(tabla);
+
+                /*row.CreateCells(tabla); row.CreateCells(tabla);
                 row.Cells[0].Value = dr.GetString(dr.GetOrdinal("Nombre")).ToString();
                 row.Cells[1].Value = dr.GetString(dr.GetOrdinal("ID")).ToString();
                 row.Cells[2].Value = dr.GetString(dr.GetOrdinal("Carne")).ToString();
                 row.Cells[3].Value = dr.GetString(dr.GetOrdinal("Departamento")).ToString();
-                row.Cells[4].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_Ingreso")).ToShortDateString();
+                row.Cells[4].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_Ingreso")).ToShortDateString();*/
                 //row.Cells[5].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_Salida")).ToShortDateString();
                 if (dr.GetOrdinal("estado") == 6)
                 {
@@ -103,6 +110,14 @@ namespace Buscadores {
                 {
                     row.Cells[6].Value = "Inactivo";
                 }
+
+                row.CreateCells(tabla);
+                row.Cells[0].Value = dr.GetString(dr.GetOrdinal("Nombre")).ToString().ToUpper();
+                row.Cells[1].Value = dr.GetString(dr.GetOrdinal("ID")).ToString().ToUpper();
+                row.Cells[2].Value = dr.GetString(dr.GetOrdinal("Carne")).ToString().ToUpper();
+                row.Cells[3].Value = dr.GetString(dr.GetOrdinal("Departamento")).ToString().ToUpper();
+                row.Cells[4].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_de_ingreso")).ToShortDateString();
+
                 tabla.Rows.Add(row);
                 // tabla.Rows[n].Cells[4].Value = dr.GetString(dr.GetOrdinal("Fecha_Salida")).ToString();
 
@@ -183,11 +198,11 @@ namespace Buscadores {
             {
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(tabla); row.CreateCells(tabla);
-                row.Cells[0].Value = dr.GetString(dr.GetOrdinal("Nombre")).ToString();
-                row.Cells[1].Value = dr.GetString(dr.GetOrdinal("ID")).ToString();
-                row.Cells[2].Value = dr.GetString(dr.GetOrdinal("Carne")).ToString();
-                row.Cells[3].Value = dr.GetString(dr.GetOrdinal("Departamento")).ToString();
-                row.Cells[4].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_Ingreso")).ToShortDateString();
+                row.Cells[0].Value = dr.GetString(dr.GetOrdinal("Nombre")).ToString().ToUpper();
+                row.Cells[1].Value = dr.GetString(dr.GetOrdinal("ID")).ToString().ToUpper();
+                row.Cells[2].Value = dr.GetString(dr.GetOrdinal("Carne")).ToString().ToUpper();
+                row.Cells[3].Value = dr.GetString(dr.GetOrdinal("Departamento")).ToString().ToUpper();
+                row.Cells[4].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_Ingreso")).ToShortDateString().ToUpper();
                 //row.Cells[5].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_Salida")).ToShortDateString();
                 if (dr.GetOrdinal("estado") == 6)
                 {
@@ -219,11 +234,12 @@ namespace Buscadores {
             {
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(tabla);
-                row.Cells[0].Value = dr.GetString(dr.GetOrdinal("Nombre")).ToString();
+
+                /*row.Cells[0].Value = dr.GetString(dr.GetOrdinal("Nombre")).ToString();
                 row.Cells[1].Value = dr.GetString(dr.GetOrdinal("ID")).ToString();
                 row.Cells[2].Value = dr.GetString(dr.GetOrdinal("Carne")).ToString();
                 row.Cells[3].Value = dr.GetString(dr.GetOrdinal("Departamento")).ToString();
-                row.Cells[4].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_Ingreso")).ToShortDateString();
+                row.Cells[4].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_Ingreso")).ToShortDateString();*/
                 //row.Cells[5].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_Salida")).ToShortDateString();
                 if (dr.GetOrdinal("estado") == 6)
                 {
@@ -233,6 +249,13 @@ namespace Buscadores {
                 {
                     row.Cells[6].Value = "Inactivo";
                 }
+
+                row.Cells[0].Value = dr.GetString(dr.GetOrdinal("Nombre")).ToString().ToUpper();
+                row.Cells[1].Value = dr.GetString(dr.GetOrdinal("ID")).ToString();
+                row.Cells[2].Value = dr.GetString(dr.GetOrdinal("Carne")).ToString().ToUpper();
+                row.Cells[3].Value = dr.GetString(dr.GetOrdinal("Departamento")).ToString().ToUpper();
+                row.Cells[4].Value = dr.GetDateTime(dr.GetOrdinal("Fecha_de_ingreso")).ToShortDateString();
+
                 tabla.Rows.Add(row);
                 // tabla.Rows[n].Cells[4].Value = dr.GetString(dr.GetOrdinal("Fecha_Salida")).ToString();
 
